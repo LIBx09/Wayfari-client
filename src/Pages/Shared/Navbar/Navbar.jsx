@@ -1,9 +1,11 @@
 import { CiUser } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
-  const user = true;
+  const { user, logout } = useAuth();
+  console.log(logout);
 
   return (
     <>
@@ -64,7 +66,7 @@ const Navbar = () => {
                 </li>
                 <li className="mt-2">
                   <button
-                    //   onClick={getOut}
+                    onClick={logout}
                     className="bg-gray-200 block text-center"
                   >
                     Sign Out
