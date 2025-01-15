@@ -73,6 +73,8 @@ const Navbar = () => {
                 <div className="divider">-</div>
 
                 <div className="border p-2 rounded-lg">
+                  {/* TODO: set the data from db  */}
+
                   <p className="flex items-center gap-2 ml-2">
                     <CiUser />
                     user name{" "}
