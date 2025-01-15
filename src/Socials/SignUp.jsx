@@ -1,18 +1,58 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import registerLottie from "../assets/lottie/signup.json";
 import Lottie from "lottie-react";
 import GoogleIn from "./GoogleIn";
+import { useForm } from "react-hook-form";
+import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const handleSignUp = (e) => {
-    e.preventDefault();
+  const { createUser, manageUserProfile } = useAuth();
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    // formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    // console.log(data);
+    const { firstName, lastName, ...rest } = data;
+    const name = `${firstName} ${lastName}`;
+    const userData = {
+      ...rest,
+      name,
+      //   role: "Tourist",
+    };
+    console.log(userData);
+
+    //getting data for user create into auth
+    createUser(userData?.email, userData?.password).then((result) => {
+      const loggedUser = result.user;
+      console.log("logged user", loggedUser);
+
+      //getting data for user profile update
+      manageUserProfile(name, userData?.photo)
+        .then(() => {
+          toast.success("user profile updated successfully");
+          reset();
+        })
+        .catch((errors) => console.log(errors));
+      navigate("/");
+    });
   };
 
   return (
     <div className="flex flex-col lg:flex-row w-10/12 mx-auto p-10 rounded-xl items-center">
       <div className="card glass-effect bg-base-100  shrink-0 shadow-2xl w-full lg:w-5/12 mx-auto">
         <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form onSubmit={handleSignUp} className="space-y-6" action="#">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-6"
+            action="#"
+          >
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
               Sign in to our platform
             </h5>
@@ -23,7 +63,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
-                  name="firstName"
+                  {...register("firstName", { required: true })}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Name"
                   required
@@ -35,7 +75,7 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
-                  name="lastName"
+                  {...register("lastName", { required: true })}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   placeholder=" Name"
                   required
@@ -48,7 +88,7 @@ const SignUp = () => {
               </label>
               <input
                 type="url"
-                name="photo"
+                {...register("photo", { required: true })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="Your Profile URL"
                 required
@@ -60,7 +100,7 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
-                name="email"
+                {...register("email", { required: true })}
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="name@company.com"
@@ -76,7 +116,7 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                name="password"
+                {...register("password", { required: true })}
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"

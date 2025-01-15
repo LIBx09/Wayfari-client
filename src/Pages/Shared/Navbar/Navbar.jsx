@@ -2,17 +2,17 @@ import { CiUser } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import logo from "../../../assets/logo.png";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
-  console.log(logout);
 
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm  w-full border-b-2">
         <div className="flex-1 w-11/12 mx-auto ">
           <Link to="/" className="flex gap-2 items-center">
-            <img className="w-auto h-7" src="img" alt="ssss" />
+            <img className="w-auto h-16 ml-4" src={logo} alt="ssss" />
             <span className="font-bold">Wayfari Tourism</span>
           </Link>
         </div>
@@ -42,8 +42,7 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
-                {/* title={user?.displayName} */}
-                <div className="w-10 rounded-full">
+                <div title={user?.displayName} className="w-10 rounded-full">
                   <img
                     referrerPolicy="no-referrer"
                     alt="User Profile Photo"
@@ -79,11 +78,11 @@ const Navbar = () => {
 
                   <p className="flex items-center gap-2 ml-2">
                     <CiUser />
-                    user name{" "}
+                    {user?.displayName}
                   </p>
                   <p className="flex flex-wrap text-xs items-center gap-2 p-2">
                     <MdAlternateEmail />
-                    ibrahim@gmail.com
+                    {user?.email}
                   </p>
                 </div>
               </ul>

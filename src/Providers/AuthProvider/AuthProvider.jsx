@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   //google login
   const Google = new GoogleAuthProvider();
-
   //create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -45,7 +44,7 @@ const AuthProvider = ({ children }) => {
   //manage user profile
   const manageUserProfile = (name, photo) => {
     setLoading(true);
-    return updateProfile(auth.createUser, {
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });

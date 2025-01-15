@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home/Home";
 import SignIn from "../Socials/SignIn";
 import SignUp from "../Socials/SignUp";
 import Error from "../Layout/Error";
+import LostPass from "../Socials/LostPass";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp />,
+      },
+      {
+        path: "/reset",
+        element: <LostPass />,
       },
     ],
   },

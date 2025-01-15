@@ -1,11 +1,29 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import loginLottie from "../assets/lottie/signin.json";
 import Lottie from "lottie-react";
 import GoogleIn from "./GoogleIn";
+import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
+import { useState } from "react";
 
 const SignIn = () => {
+  const { signIn } = useAuth();
+  const email = [];
+
   const handleSignIn = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        toast.success("user login successfully");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
   };
 
   return (
@@ -52,8 +70,8 @@ const SignIn = () => {
               <div className="">
                 <GoogleIn />
               </div>
-              {/* to={`/lost?email=${encodeURIComponent(email)}`} */}
-              <Link>
+
+              <Link to={`/reset?email=${encodeURIComponent(email)}`}>
                 <button
                   className="btn
                 "
