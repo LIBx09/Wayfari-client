@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const Addpackage = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     // console.log(data);
@@ -29,6 +29,7 @@ const Addpackage = () => {
     if (packageDataRes.data.insertedId) {
       toast.success("data added successfully");
     }
+    reset();
     console.log(packageDataRes.data);
   };
 

@@ -6,6 +6,7 @@ import SignUp from "../Socials/SignUp";
 import Error from "../Layout/Error";
 import LostPass from "../Socials/LostPass";
 import Addpackage from "../Pages/Dashboard/Admin/AddPackage/Addpackage";
+import PackageDetail from "../Pages/PackageDetail/PackageDetail";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ const router = createBrowserRouter([
       {
         path: "addPackage",
         element: <Addpackage />,
+      },
+      {
+        path: "details/:id",
+        element: <PackageDetail />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/package/details/${params.id}`),
       },
       {
         path: "/signIn",
