@@ -27,6 +27,9 @@ const Navbar = () => {
             <li>
               <Link to="/about">About Us</Link>
             </li>
+            <li>
+              <Link to="addPackage">ADD</Link>
+            </li>
 
             {!user && (
               <li>

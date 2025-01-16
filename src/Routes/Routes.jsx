@@ -5,6 +5,7 @@ import SignIn from "../Socials/SignIn";
 import SignUp from "../Socials/SignUp";
 import Error from "../Layout/Error";
 import LostPass from "../Socials/LostPass";
+import Addpackage from "../Pages/Dashboard/Admin/AddPackage/Addpackage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "addPackage",
+        element: <Addpackage />,
       },
       {
         path: "/signIn",

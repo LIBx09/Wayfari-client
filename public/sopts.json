@@ -1,0 +1,80 @@
+[
+  {
+    "tripTitle": "Explore the Beauty of Bandarban",
+    "price": 200,
+    "tourType": "Adventure",
+    "photo": [
+      "https://i.postimg.cc/g2StzcnM/Bandarban1.jpg",
+      "https://i.postimg.cc/rFy9DX67/Bandarban2.webp"
+    ],
+    "tourDetail": "Experience the scenic landscapes of Bandarban, including hills, waterfalls, and serene tribal villages.",
+    "dayDetails": [
+      "Arrival in Bandarban, visit Nilachal Hill, and enjoy a sunset view. Overnight stay in a hillside resort.",
+      "Trek to Nafakhum Waterfall and explore the tribal markets before departure."
+    ]
+  },
+  {
+    "tripTitle": "Saint Martin's Island Getaway",
+    "price": 250,
+    "tourType": "Relaxation",
+    "photo": [
+      "https://i.postimg.cc/8PymWKNc/Saint-Martin1.webp",
+      "https://i.postimg.cc/rFy9DX67/Bandarban2.webp"
+    ],
+    "tourDetail": "Relax on the serene beaches of Saint Martin's Island, enjoying turquoise waters and fresh seafood.",
+    "dayDetails": [
+      "Boat ride from Teknaf to Saint Martin's. Check-in at the beachfront resort and explore the island's natural beauty.",
+      "Snorkeling and island hopping to Chera Dwip. Enjoy a beachside barbecue dinner.",
+      "Morning beach walk and leisure before returning to Teknaf."
+    ]
+  },
+  {
+    "tripTitle": "Sundarbans Wildlife Adventure",
+    "price": 400,
+    "tourType": "Nature",
+    "photo": [
+      "https://i.postimg.cc/wjwWFxzX/sundarban2.jpg",
+      "https://i.postimg.cc/g2StzcnM/Bandarban1.jpg"
+    ],
+    "tourDetail": "Explore the Sundarbans, the largest mangrove forest, home to the Royal Bengal Tiger and unique wildlife.",
+    "dayDetails": [
+      "Arrival in Khulna, board the boat, and begin the Sundarbans tour. Visit Heron Point and Dobeki Watchtower.",
+      "Explore Karamjol Wildlife Center and enjoy a guided jungle walk.",
+      "Boat safari through canals, bird watching, and return to Khulna."
+    ]
+  },
+  {
+    "tripTitle": "Cultural Tour of Dhaka and Sonargaon",
+    "price": 150,
+    "tourType": "Cultural",
+    "photo": [
+      "https://i.postimg.cc/8PymWKNc/Saint-Martin1.webp",
+      "https://i.postimg.cc/wjwWFxzX/sundarban2.jpg"
+    ],
+    "tourDetail": "Discover the cultural heritage of Dhaka and Sonargaon, including historical sites and traditional crafts.",
+    "dayDetails": [
+      "Explore Dhaka's Ahsan Manzil, Lalbagh Fort, and Shakhari Bazaar.",
+      "Day trip to Sonargaon, visit Panam City and Folk Art Museum.",
+      "Relax and shop at Jamuna Future Park before departure."
+    ]
+  },
+  {
+    "tripTitle": "Bangladesh in Five Days: A Complete Experience",
+    "price": 600,
+    "tourType": "Comprehensive",
+    "photo": [
+      "https://i.postimg.cc/rFy9DX67/Bandarban2.webp",
+      "https://i.postimg.cc/g2StzcnM/Bandarban1.jpg",
+      "https://i.postimg.cc/wjwWFxzX/sundarban2.jpg",
+      "https://i.postimg.cc/8PymWKNc/Saint-Martin1.webp"
+    ],
+    "tourDetail": "A 5-day journey covering Bangladesh's most iconic destinations, from Sundarbans to Saint Martin's.",
+    "dayDetails": [
+      "Begin in Dhaka with a city tour covering Lalbagh Fort and Ahsan Manzil.",
+      "Travel to Sundarbans, enjoy a boat safari, and spot wildlife.",
+      "Visit Bandarban, trek to Nilgiri and Nafakhum.",
+      "Relax on Saint Martin's Island, snorkeling and exploring Chera Dwip.",
+      "Return to Dhaka with a stop at Sonargaon for cultural exploration."
+    ]
+  }
+]
