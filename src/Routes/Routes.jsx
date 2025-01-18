@@ -7,6 +7,10 @@ import Error from "../Layout/Error";
 import LostPass from "../Socials/LostPass";
 import Addpackage from "../Pages/Dashboard/Admin/AddPackage/Addpackage";
 import PackageDetail from "../Pages/PackageDetail/PackageDetail";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
+import Dashboard from "../Layout/Dashboard";
+import Applicants from "../Pages/Dashboard/Admin/Applicants/Applicants";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -18,10 +22,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "addPackage",
-        element: <Addpackage />,
-      },
+
       {
         path: "details/:id",
         element: <PackageDetail />,
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
         path: "/signIn",
         element: <SignIn />,
       },
+
       {
         path: "/signUp",
         element: <SignUp />,
@@ -39,6 +41,30 @@ const router = createBrowserRouter([
       {
         path: "/reset",
         element: <LostPass />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+    errorElement: <Error />,
+    children: [
+      //admin routes
+      {
+        path: "adminHome",
+        element: <AdminHome />,
+      },
+      {
+        path: "addPackage",
+        element: <Addpackage />,
+      },
+      {
+        path: "allUsers",
+        element: <AllUsers />,
+      },
+      {
+        path: "apply",
+        element: <Applicants />,
       },
     ],
   },

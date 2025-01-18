@@ -1,4 +1,20 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+
 const AllUsers = () => {
+  const axiosSecure = useAxiosSecure();
+  const { data: users = [] } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/users", {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem}`,
+        },
+      });
+      console.log(users);
+      return res.data;
+    },
+  });
   return (
     <div className="overflow-x-auto">
       <table className="table">
