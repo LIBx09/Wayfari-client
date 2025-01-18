@@ -5,9 +5,11 @@ import GoogleIn from "./GoogleIn";
 import { useForm } from "react-hook-form";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const SignUp = () => {
   const { createUser, manageUserProfile } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const {
@@ -36,8 +38,18 @@ const SignUp = () => {
       //getting data for user profile update
       manageUserProfile(name, userData?.photo)
         .then(() => {
-          toast.success("user profile updated successfully");
-          reset();
+          const userInfo = {
+            name,
+            email: userData.email,
+            photo: userData.photo,
+            role: "tourist",
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              reset();
+              toast.success("user added database successfully");
+            }
+          });
         })
         .catch((errors) => console.log(errors));
       navigate("/");
