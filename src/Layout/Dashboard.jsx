@@ -6,7 +6,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex">
-      <div className="w-64 h-screen bg-orange-400">
+      <div className="w-64 h-dvh sticky bg-orange-400">
         <ul className="menu">
           {/* {isAdmin ? ( */}
           <>
@@ -67,7 +67,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <div className="flex-1">
+      <div className=" w-9/12 mx-auto">
         <Outlet />
       </div>
     </div>
