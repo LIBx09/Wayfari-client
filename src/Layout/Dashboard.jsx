@@ -1,14 +1,16 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
+import useGuide from "../Hooks/useguide";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const [isGuide] = useGuide();
 
   return (
     <div className="flex">
       <div className="w-64 h-dvh sticky bg-orange-400">
         <ul className="menu">
-          {isAdmin ? (
+          {isAdmin && (
             <>
               <li>
                 <NavLink to="/dashboard/adminHome">ADMIN HOME</NavLink>
@@ -23,31 +25,42 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/apply">APPLICATIONS Guide</NavLink>
               </li>
             </>
-          ) : (
+          )}
+          {!isAdmin && !isGuide ? (
             <>
               <li>
-                <NavLink to="/dashboard/">User Home</NavLink>
+                <NavLink to="/dashboard/">Manage Profile</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/">My Cart</NavLink>
+                <NavLink to="/dashboard/">My Booking</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/">RESERVATION</NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/">PAYMENT HISTORY</NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/">ADD REVIEW</NavLink>
+                <NavLink to="/dashboard/">Manage Stories</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/">Payment History</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/">Guides</NavLink>
+                <NavLink to="/dashboard/">Add Stories</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/">Join As Tour Guide</NavLink>
+              </li>
+            </>
+          ) : (
+            ""
+          )}
+          {isGuide && (
+            <>
+              <li>
+                <NavLink to="/dashboard/">Guide</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/">Guide</NavLink>
               </li>
             </>
           )}
+
           <div className="divider"></div>
           <li>
             <NavLink to="/">Home</NavLink>

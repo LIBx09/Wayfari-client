@@ -3,9 +3,11 @@ import "react-tabs/style/react-tabs.css";
 import PackageCards from "./TabsContent/PackageCards";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
+import GuideCards from "./TabsContent/GuideCards";
 
 const TourAndGuide = () => {
-  const [samplePackage, setSamplePackage] = useState();
+  const [samplePackage, setSamplePackage] = useState([]);
+  const [guides, setGuide] = useState([]);
   //   console.log(samplePackage);
   const axiosPublic = useAxiosPublic();
   useEffect(() => {
@@ -14,8 +16,14 @@ const TourAndGuide = () => {
       setSamplePackage(res.data);
     });
   }, [axiosPublic]);
-  //   const [tourPackage] = usePackage();
-  //   console.log(tourPackage);
+
+  useEffect(() => {
+    axiosPublic.get("/users/guide/limit").then((res) => {
+      console.log(res.data);
+      setGuide(res.data);
+    });
+  }, [axiosPublic]);
+
   return (
     <Tabs>
       <TabList>
@@ -35,7 +43,15 @@ const TourAndGuide = () => {
         </div>
       </TabPanel>
       <TabPanel>
-        <h2>Any content 2</h2>
+        <div className="mx-20 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {guides?.length > 0 ? (
+            guides.map((guide) => (
+              <GuideCards key={guide._id} guide={guide}></GuideCards>
+            ))
+          ) : (
+            <p>Loading or no packages available...</p>
+          )}
+        </div>
       </TabPanel>
     </Tabs>
   );

@@ -11,6 +11,7 @@ import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
 import Dashboard from "../Layout/Dashboard";
 import Applicants from "../Pages/Dashboard/Admin/Applicants/Applicants";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
+import BookingForm from "../Pages/BookingForm/BookingForm";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/package/details/${params.id}`),
       },
+      {
+        path: "/bookingForm",
+        element: <BookingForm />,
+      },
+
       {
         path: "/signIn",
         element: <SignIn />,

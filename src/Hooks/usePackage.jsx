@@ -8,7 +8,7 @@ const usePackage = () => {
     queryKey: ["tourPackage"],
     queryFn: async () => {
       const res = await axiosPublic.get("/package");
-      console.log("dada", res.data);
+      // console.log("dada", res.data);
       return res.data;
     },
   });
