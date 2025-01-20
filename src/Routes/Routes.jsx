@@ -36,14 +36,8 @@ const router = createBrowserRouter([
         element: <GuideDetails />,
       },
       {
-        // path: "/guideDetails/:guideId",
-        // element: <GuideDetails />,
-      },
-      {
         path: "guideDetails/:guideId",
         element: <GuideDetails />,
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/users/all/guide/${params.id}`),
       },
       {
         path: "/bookingForm",
