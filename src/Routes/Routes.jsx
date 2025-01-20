@@ -32,10 +32,18 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/package/details/${params.id}`),
       },
       {
-        path: "guideDetails/:id",
+        path: "/details/:id/guideDetails/:guideId",
+        element: <GuideDetails />,
+      },
+      {
+        // path: "/guideDetails/:guideId",
+        // element: <GuideDetails />,
+      },
+      {
+        path: "guideDetails/:guideId",
         element: <GuideDetails />,
         // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/package/details/${params.id}`),
+        //   fetch(`http://localhost:5000/users/all/guide/${params.id}`),
       },
       {
         path: "/bookingForm",
