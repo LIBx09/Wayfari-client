@@ -12,6 +12,7 @@ import Dashboard from "../Layout/Dashboard";
 import Applicants from "../Pages/Dashboard/Admin/Applicants/Applicants";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import BookingForm from "../Pages/BookingForm/BookingForm";
+import GuideDetails from "../Pages/GuideDetails/GuideDetails";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
         element: <PackageDetail />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/package/details/${params.id}`),
+      },
+      {
+        path: "guideDetails/:id",
+        element: <GuideDetails />,
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/package/details/${params.id}`),
       },
       {
         path: "/bookingForm",

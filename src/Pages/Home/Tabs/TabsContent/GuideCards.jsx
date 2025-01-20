@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const GuideCards = ({ guide }) => {
-  const { photo, name, email, role } = guide;
+  const { photo, name, email, role, _id } = guide;
   // this component user in home page for tabs
   return (
     <div className="card w-full  bg-white shadow-lg rounded-lg overflow-hidden">
@@ -21,7 +23,9 @@ const GuideCards = ({ guide }) => {
           </a>
         </p>
         <div className="mt-4">
-          <button className="btn btn-primary w-full">View Profile</button>
+          <Link to={`guideDetails/${_id}`}>
+            <button className="btn  btn-xs">details</button>
+          </Link>
         </div>
       </div>
     </div>

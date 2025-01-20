@@ -17,9 +17,11 @@ const PackageDetail = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { user } = useAuth();
   const [guideUsers] = useGuideUsers();
+
   const navigate = useNavigate();
 
   const {
+    _id,
     dayDetail,
     price,
     spotPhotos,
@@ -179,7 +181,9 @@ const PackageDetail = () => {
                     <td>{user.email}</td>
                     <td>{user.role}</td>
                     <th>
-                      <button className="btn  btn-xs">details</button>
+                      <Link to={`/details/${_id}/guideDetails/${user._id}`}>
+                        <button className="btn  btn-xs">details</button>
+                      </Link>
                     </th>
                   </tr>
                 ))}
