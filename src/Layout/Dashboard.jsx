@@ -12,11 +12,20 @@ const Dashboard = () => {
         <ul className="menu">
           {isAdmin && (
             <>
+              <div>
+                <h2 className="text-3xl ml-4 mt-3 text-black font-bold">
+                  ADMIN DASHBOARD
+                </h2>
+              </div>
+              <div className="divider"></div>
               <li>
                 <NavLink to="/dashboard/adminHome">ADMIN HOME</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/addPackage">ADD PACKAGE</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/bookings">BOOKING DETAILS</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/allUsers">ALL USER</NavLink>
@@ -26,13 +35,35 @@ const Dashboard = () => {
               </li>
             </>
           )}
+          {isGuide && (
+            <>
+              <div>
+                <h2 className="text-3xl ml-4 mt-3 text-black font-bold">
+                  GUIDE DASHBOARD
+                </h2>
+              </div>
+              <div className="divider"></div>
+              <li>
+                <NavLink to="/dashboard/">Guide</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/bookings">MY ASSIGNED TOURS</NavLink>
+              </li>
+            </>
+          )}
           {!isAdmin && !isGuide ? (
             <>
+              <div>
+                <h2 className="text-3xl ml-4 mt-3 text-black font-bold">
+                  USER DASHBOARD
+                </h2>
+              </div>
+              <div className="divider"></div>
               <li>
                 <NavLink to="/dashboard/">Manage Profile</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/">My Booking</NavLink>
+                <NavLink to="/dashboard/bookings">My Booking</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/">Manage Stories</NavLink>
@@ -49,16 +80,6 @@ const Dashboard = () => {
             </>
           ) : (
             ""
-          )}
-          {isGuide && (
-            <>
-              <li>
-                <NavLink to="/dashboard/">Guide</NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/">Guide</NavLink>
-              </li>
-            </>
           )}
 
           <div className="divider"></div>

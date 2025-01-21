@@ -13,6 +13,7 @@ import Applicants from "../Pages/Dashboard/Admin/Applicants/Applicants";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import BookingForm from "../Pages/BookingForm/BookingForm";
 import GuideDetails from "../Pages/GuideDetails/GuideDetails";
+import BookingTours from "../Pages/Dashboard/BookingTours/BookingTours";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,12 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     errorElement: <Error />,
     children: [
+      //user & guide routes
+      {
+        path: "bookings",
+        element: <BookingTours />,
+      },
+
       //admin routes
       {
         path: "adminHome",

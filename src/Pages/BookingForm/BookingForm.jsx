@@ -7,12 +7,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = () => {
   const [startDate, setStartDate] = useState(new Date());
   const axiosPublic = useAxiosPublic();
   const [guideUsers] = useGuideUsers();
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [packageDetails, setPackageDetails] = useState([]);
   const { _id, tourPlaceName, price } = packageDetails;
   //   console.log(_id, tourPlaceName, price);
@@ -34,13 +36,13 @@ const BookingForm = () => {
       packagePrice: price,
     };
 
-    axiosPublic.post("/booking", bookingInfo).then((res) => {
+    axiosPublic.post("/bookings", bookingInfo).then((res) => {
       if (res.data.insertedId) {
         reset();
         toast.success("Booking data added to the database successfully");
       }
     });
-
+    navigate("/dashboard/bookings");
     console.log(bookingInfo);
   };
 
