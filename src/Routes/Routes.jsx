@@ -14,6 +14,7 @@ import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import BookingForm from "../Pages/BookingForm/BookingForm";
 import GuideDetails from "../Pages/GuideDetails/GuideDetails";
 import BookingTours from "../Pages/Dashboard/BookingTours/BookingTours";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "bookings",
         element: <BookingTours />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
 
       //admin routes

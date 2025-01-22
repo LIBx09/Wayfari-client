@@ -3,17 +3,24 @@ import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useBookingDB from "../../../Hooks/useBookingDB";
 import useGuide from "../../../Hooks/useguide";
+import { Link } from "react-router-dom";
+// import CheckoutForm from "../Payment/CheckoutForm";
 
 const BookingTours = () => {
   const [bookings] = useBookingDB();
   const [showModal, setShowModal] = useState(false);
   const [isGuide] = useGuide();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (bookings.length === 3) {
       setShowModal(true);
     }
   }, [bookings]);
+
+  // const handlePayClick = (booking) => {
+  //   navigate(`/payment?bookingId=${booking._id}`);
+  // };
 
   const closeModal = () => {
     setShowModal(false);
@@ -87,7 +94,11 @@ const BookingTours = () => {
                     </td>
                     <td>{bookingDate}</td>
                     <td>
-                      <button className="btn btn-primary btn-xs">Pay</button>
+                      <Link
+                        to={`/dashboard/payment?bookingPrice=${packagePrice}`}
+                      >
+                        <button className="btn btn-primary btn-xs">Pay</button>
+                      </Link>
                     </td>
                     <td>
                       <button className="btn btn-error btn-xs">Delete</button>
@@ -146,6 +157,7 @@ const BookingTours = () => {
           </div>
         </div>
       )}
+      {/* <CheckoutForm /> */}
     </>
   );
 };
