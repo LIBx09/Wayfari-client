@@ -10,7 +10,7 @@ const useBookingDB = () => {
   const [isGuide] = useGuide();
   const email = user?.email;
   const role = isGuide ? "guide" : "tourist";
-  const { data: bookings = [] } = useQuery({
+  const { data: bookings = [], refetch } = useQuery({
     queryKey: ["bookings", email, role],
     queryFn: async () => {
       const res = await axiosPublic.get("/bookings", {
@@ -23,7 +23,7 @@ const useBookingDB = () => {
     },
     enabled: !!user && role !== undefined,
   });
-  return [bookings];
+  return [bookings, refetch];
 };
 
 export default useBookingDB;
