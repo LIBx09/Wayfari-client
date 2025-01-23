@@ -55,6 +55,7 @@ const BookingTours = () => {
                     touristNumber,
                     bookingDate,
                   },
+                  _id,
                   packageName,
                   packagePrice,
                   status,
@@ -94,11 +95,17 @@ const BookingTours = () => {
                     </td>
                     <td>{bookingDate}</td>
                     <td>
-                      <Link
-                        to={`/dashboard/payment?bookingPrice=${packagePrice}`}
-                      >
-                        <button className="btn btn-primary btn-xs">Pay</button>
-                      </Link>
+                      {status === "in-review" ? (
+                        <button disabled className="btn  btn-xs">
+                          Pay
+                        </button>
+                      ) : (
+                        <Link to={`/dashboard/payment?booking=${_id}`}>
+                          <button className="btn btn-primary btn-xs">
+                            Pay
+                          </button>
+                        </Link>
+                      )}
                     </td>
                     <td>
                       <button className="btn btn-error btn-xs">Delete</button>
