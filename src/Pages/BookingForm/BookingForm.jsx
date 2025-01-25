@@ -118,7 +118,7 @@ const BookingForm = () => {
                 </div>
                 <input
                   {...register("price", { required: true })}
-                  defaultValue={price}
+                  // defaultValue={price}
                   type="number"
                   placeholder="Price"
                   className="input input-bordered w-full "

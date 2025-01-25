@@ -31,7 +31,7 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/allUsers">ALL USER</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/apply">APPLICATIONS Guide</NavLink>
+                <NavLink to="/dashboard/apply">APPLICANTS</NavLink>
               </li>
             </>
           )}
@@ -75,7 +75,7 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/">Add Stories</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/">Join As Tour Guide</NavLink>
+                <NavLink to="/dashboard/joinGuide">Join As Tour Guide</NavLink>
               </li>
             </>
           ) : (

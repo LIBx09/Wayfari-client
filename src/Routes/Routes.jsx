@@ -15,6 +15,7 @@ import BookingForm from "../Pages/BookingForm/BookingForm";
 import GuideDetails from "../Pages/GuideDetails/GuideDetails";
 import BookingTours from "../Pages/Dashboard/BookingTours/BookingTours";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import ApplyGuideForm from "../Pages/Dashboard/ApplyForGuide/ApplyGuideForm";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "joinGuide",
+        element: <ApplyGuideForm />,
       },
 
       //admin routes

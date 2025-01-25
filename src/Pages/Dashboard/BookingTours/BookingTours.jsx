@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { MdArrowForward } from "react-icons/md";
 
 const BookingTours = () => {
   const [bookings, refetch] = useBookingDB();
@@ -130,7 +132,13 @@ const BookingTours = () => {
                         className={`badge ${
                           status === "pending"
                             ? "badge-warning"
-                            : "badge-success"
+                            : status === "in-review"
+                            ? "bg-blue-500"
+                            : status === "accepted"
+                            ? "bg-green-500"
+                            : status === "rejected"
+                            ? "bg-red-500"
+                            : ""
                         }`}
                       >
                         {status}
@@ -140,8 +148,10 @@ const BookingTours = () => {
                     {!isGuide && (
                       <>
                         <td>
-                          {status === "in-review" ? (
-                            <button disabled className="btn  btn-xs">
+                          {["in-review", "accepted", "rejected"].includes(
+                            status
+                          ) ? (
+                            <button disabled className="btn btn-xs">
                               Pay
                             </button>
                           ) : (
@@ -162,7 +172,7 @@ const BookingTours = () => {
                     {isGuide && (
                       <>
                         <td>
-                          {status === "pending" ? (
+                          {status === "pending" || status === "rejected" ? (
                             <button disabled className="btn btn-ghost btn-xs">
                               Accept
                             </button>
@@ -182,14 +192,24 @@ const BookingTours = () => {
                           )}
                         </td>
                         <td>
-                          <button
-                            onClick={() => handleStatusChange(_id, "rejected")}
-                            className={`btn btn-xs ${
-                              status === "rejected" ? "btn-error" : "btn-ghost"
-                            }`}
-                          >
-                            Reject
-                          </button>
+                          {status === "pending" ? (
+                            <button
+                              onClick={() =>
+                                handleStatusChange(_id, "rejected")
+                              }
+                              className={`btn btn-xs ${
+                                status === "rejected"
+                                  ? "btn-error"
+                                  : "btn-ghost"
+                              }`}
+                            >
+                              Reject
+                            </button>
+                          ) : (
+                            <button disabled className="btn btn-warning btn-xs">
+                              Reject
+                            </button>
+                          )}
                         </td>
                       </>
                     )}
@@ -225,6 +245,23 @@ const BookingTours = () => {
               Close
             </button>
           </div>
+        </div>
+      )}
+      {!isGuide && (
+        <div className="text-center mt-10 bg-gradient-to-r from-blue-500 to-green-500 p-6 rounded-lg shadow-lg">
+          <div className="flex justify-center items-center text-white mb-4">
+            <FaMapMarkedAlt className="text-4xl mr-3" />
+            <h2 className="text-3xl font-extrabold">Become a Tour Guide!</h2>
+          </div>
+          <p className="mb-6 text-gray-100 text-lg">
+            Ready to share your passion for travel? Join our team and help
+            travelers create lifelong memories.
+          </p>
+          <Link to="/dashboard/joinGuide">
+            <button className="btn ml-4 md:ml-24 btn-primary btn-lg flex items-center gap-2">
+              Apply Now <MdArrowForward />
+            </button>
+          </Link>
         </div>
       )}
       {/* <CheckoutForm /> */}
