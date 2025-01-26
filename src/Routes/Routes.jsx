@@ -16,6 +16,10 @@ import GuideDetails from "../Pages/GuideDetails/GuideDetails";
 import BookingTours from "../Pages/Dashboard/BookingTours/BookingTours";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import ApplyGuideForm from "../Pages/Dashboard/ApplyForGuide/ApplyGuideForm";
+import ManageProfile from "../Pages/Dashboard/ManageProfile/ManageProfile";
+import AddStories from "../Pages/Dashboard/AddStories/AddStories";
+import ManageStories from "../Pages/Dashboard/ManageStories/ManageStories";
+import UpdateStories from "../Pages/Dashboard/UpdateStories/UpdateStories";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +83,22 @@ const router = createBrowserRouter([
       {
         path: "joinGuide",
         element: <ApplyGuideForm />,
+      },
+      {
+        path: "manageProfile",
+        element: <ManageProfile />,
+      },
+      {
+        path: "addStories",
+        element: <AddStories />,
+      },
+      {
+        path: "manageStories",
+        element: <ManageStories />,
+      },
+      {
+        path: "editStory/:id",
+        element: <UpdateStories />,
       },
 
       //admin routes

@@ -24,9 +24,9 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/addPackage">ADD PACKAGE</NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/dashboard/bookings">BOOKING DETAILS</NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/dashboard/allUsers">ALL USER</NavLink>
               </li>
@@ -44,10 +44,16 @@ const Dashboard = () => {
               </div>
               <div className="divider"></div>
               <li>
-                <NavLink to="/dashboard/">Guide</NavLink>
+                <NavLink to="/dashboard/manageProfile">MANAGE PROFILE</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/bookings">MY ASSIGNED TOURS</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/addStories">ADD STORIES</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageStories">MANAGE STORIES</NavLink>
               </li>
             </>
           )}
@@ -60,19 +66,19 @@ const Dashboard = () => {
               </div>
               <div className="divider"></div>
               <li>
-                <NavLink to="/dashboard/">Manage Profile</NavLink>
+                <NavLink to="/dashboard/manageProfile">Manage Profile</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/bookings">My Booking</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/">Manage Stories</NavLink>
+                <NavLink to="/dashboard/manageStories">Manage Stories</NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/dashboard/">Payment History</NavLink>
-              </li>
+              </li> */}
               <li>
-                <NavLink to="/dashboard/">Add Stories</NavLink>
+                <NavLink to="/dashboard/addStories">Add Stories</NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/joinGuide">Join As Tour Guide</NavLink>
