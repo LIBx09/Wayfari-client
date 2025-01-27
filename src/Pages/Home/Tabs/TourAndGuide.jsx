@@ -4,6 +4,7 @@ import PackageCards from "./TabsContent/PackageCards";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 import GuideCards from "./TabsContent/GuideCards";
+import Loading from "../../../components/Loading/Loading";
 
 const TourAndGuide = () => {
   const [samplePackage, setSamplePackage] = useState([]);
@@ -27,8 +28,8 @@ const TourAndGuide = () => {
   return (
     <Tabs>
       <TabList>
-        <Tab>Title 1</Tab>
-        <Tab>Title 2</Tab>
+        <Tab>Tourist Spots</Tab>
+        <Tab>Guides</Tab>
       </TabList>
 
       <TabPanel>
@@ -38,7 +39,9 @@ const TourAndGuide = () => {
               <PackageCards key={item._id} item={item}></PackageCards>
             ))
           ) : (
-            <p>Loading or no packages available...</p>
+            <>
+              <Loading />
+            </>
           )}
         </div>
       </TabPanel>
@@ -49,7 +52,9 @@ const TourAndGuide = () => {
               <GuideCards key={guide._id} guide={guide}></GuideCards>
             ))
           ) : (
-            <p>Loading or no packages available...</p>
+            <>
+              <Loading />
+            </>
           )}
         </div>
       </TabPanel>

@@ -16,7 +16,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     reset,
-    // formState: { errors },
+    formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
@@ -105,6 +105,11 @@ const SignUp = () => {
                 placeholder="Your Profile URL"
                 required
               />
+              {errors.photo && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.photo.message}
+                </p>
+              )}
             </div>
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -128,12 +133,29 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 8,
+                    message: "Password must be at least 8 characters",
+                  },
+                  pattern: {
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    message:
+                      "Password must include uppercase, lowercase, number, and special character",
+                  },
+                })}
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 required
               />
+              {errors.password && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
             {/* Optional TODO: GOOGLE SIGN IN */}
             <div className="">

@@ -20,6 +20,9 @@ import ManageProfile from "../Pages/Dashboard/ManageProfile/ManageProfile";
 import AddStories from "../Pages/Dashboard/AddStories/AddStories";
 import ManageStories from "../Pages/Dashboard/ManageStories/ManageStories";
 import UpdateStories from "../Pages/Dashboard/UpdateStories/UpdateStories";
+import PrivateRoute from "./PrivateRoute";
+import Community from "../Pages/Community/Community";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -34,23 +37,51 @@ const router = createBrowserRouter([
 
       {
         path: "details/:id",
-        element: <PackageDetail />,
+        element: (
+          <PrivateRoute>
+            <PackageDetail />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/package/details/${params.id}`),
       },
       {
         path: "/details/:id/guideDetails/:guideId",
-        element: <GuideDetails />,
+        element: (
+          <PrivateRoute>
+            <GuideDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "guideDetails/:guideId",
-        element: <GuideDetails />,
+        element: (
+          <PrivateRoute>
+            <GuideDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/bookingForm",
-        element: <BookingForm />,
+        element: (
+          <PrivateRoute>
+            <BookingForm />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/community",
+        element: (
+          <PrivateRoute>
+            <Community />
+          </PrivateRoute>
+        ),
       },
 
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
+      },
       {
         path: "/signIn",
         element: <SignIn />,
@@ -90,7 +121,11 @@ const router = createBrowserRouter([
       },
       {
         path: "addStories",
-        element: <AddStories />,
+        element: (
+          <PrivateRoute>
+            <AddStories />
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageStories",

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginLottie from "../assets/lottie/signin.json";
 import Lottie from "lottie-react";
 import GoogleIn from "./GoogleIn";
@@ -9,6 +9,8 @@ import { useState } from "react";
 
 const SignIn = () => {
   const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const email = [];
 
   const handleSignIn = (e) => {
@@ -18,11 +20,20 @@ const SignIn = () => {
     const password = form.password.value;
     console.log(email, password);
     signIn(email, password)
-      .then((result) => {
-        toast.success("user login successfully");
+      .then((res) => {
+        console.log(res);
+        navigate(location?.state ? location.state : "/");
+        e.target.reset();
+        toast.success("Successfully Login");
       })
       .catch((error) => {
-        toast.error(error);
+        if (password.length < 8) {
+          toast.error("Password length is not matched");
+        } else if (error.code === "auth/wrong-password") {
+          toast.error("Failed to login. Please try again later.");
+        } else {
+          toast.error("Incorrect password. Please try again.");
+        }
       });
   };
 

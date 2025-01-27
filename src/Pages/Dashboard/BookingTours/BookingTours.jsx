@@ -9,13 +9,42 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { MdArrowForward } from "react-icons/md";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const BookingTours = () => {
   const [bookings, refetch] = useBookingDB();
   const [showModal, setShowModal] = useState(false);
   const [isGuide] = useGuide();
   const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   // const navigate = useNavigate();
+
+  const handleCancel = async (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.delete(`/bookings/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+          refetch();
+        });
+      }
+    });
+  };
 
   useEffect(() => {
     if (bookings.length === 3) {
@@ -35,7 +64,7 @@ const BookingTours = () => {
       text: confirmationMessage,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: status === "accepted" ? "#4caf50" : "#f44336", // Green for accept, red for reject
+      confirmButtonColor: status === "accepted" ? "#4caf50" : "#f44336",
       cancelButtonColor: "#d33",
       confirmButtonText: status === "accepted" ? "Yes, Accept" : "Yes, Reject",
     }).then(async (result) => {
@@ -163,9 +192,18 @@ const BookingTours = () => {
                           )}
                         </td>
                         <td>
-                          <button className="btn btn-error btn-xs">
-                            Delete
-                          </button>
+                          {status === "pending" ? (
+                            <button
+                              onClick={() => handleCancel(_id)}
+                              className="btn btn-error btn-xs"
+                            >
+                              Cancel
+                            </button>
+                          ) : (
+                            <button disabled className="btn btn-error btn-xs">
+                              Cancel
+                            </button>
+                          )}
                         </td>
                       </>
                     )}

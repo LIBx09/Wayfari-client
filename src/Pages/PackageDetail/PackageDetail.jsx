@@ -8,14 +8,14 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaMapMarkerAlt, FaDollarSign, FaListAlt } from "react-icons/fa";
-import useAuth from "../../Hooks/useAuth";
+
 import useGuideUsers from "../../Hooks/useGuideUsers";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const PackageDetail = () => {
   const detailPackage = useLoaderData();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const { user } = useAuth();
+
   const [guideUsers] = useGuideUsers();
 
   const navigate = useNavigate();
@@ -104,20 +104,14 @@ const PackageDetail = () => {
           <div className="text-2xl font-bold text-green-600 flex items-center gap-2 mb-6">
             <FaDollarSign />${price.toLocaleString()}
           </div>
-          {user?.email ? (
-            <Link to="/bookingForm">
-              <button
-                onClick={handleBookNow}
-                className="btn bg-orange-500 text-white hover:bg-orange-600 transition-colors"
-              >
-                Book Now
-              </button>
-            </Link>
-          ) : (
-            <button disabled className="btn btn-primary">
+          <Link to="/bookingForm">
+            <button
+              onClick={handleBookNow}
+              className="btn bg-orange-500 text-white hover:bg-orange-600 transition-colors"
+            >
               Book Now
             </button>
-          )}
+          </Link>
         </div>
 
         {/* Accordion for Day Details */}

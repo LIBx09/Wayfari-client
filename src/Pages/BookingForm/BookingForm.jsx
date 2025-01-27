@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BookingForm = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -156,7 +156,21 @@ const BookingForm = () => {
                 />
               </label>
             </div>
-            <button className="btn btn-primary w-full">Book Now</button>
+            {user?.email ? (
+              <button className="btn btn-primary w-full">Book Now</button>
+            ) : (
+              <>
+                <button disabled className="btn btn-primary w-full">
+                  Book Now{" "}
+                </button>
+                <span>
+                  Please sign in to active book now button.{" "}
+                  <Link to="/signIn" className="underline">
+                    SingIn
+                  </Link>
+                </span>
+              </>
+            )}
           </form>
         </div>
       </div>
