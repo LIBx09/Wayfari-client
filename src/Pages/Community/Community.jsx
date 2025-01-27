@@ -7,7 +7,8 @@ import SampleStoryCard from "../Home/Stories/SampleStoryCard";
 const Community = () => {
   const [allStories] = useAllStories();
   const [favoriteStories] = useFavoriteStories();
-  console.log("all story", allStories, favoriteStories);
+  console.log(favoriteStories);
+
   return (
     <div className="w-10/12 mx-auto">
       <Helmet>
@@ -20,9 +21,11 @@ const Community = () => {
       <div>
         <h2 className="text-2xl underline font-bold">My Favorite Stories</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-5">
-          {favoriteStories.map((item) => (
-            <SampleStoryCard key={item._id} story={item}></SampleStoryCard>
-          ))}
+          {favoriteStories.length < 0
+            ? ""
+            : favoriteStories.map((item) => (
+                <SampleStoryCard key={item._id} story={item}></SampleStoryCard>
+              ))}
         </div>
       </div>
       <div>

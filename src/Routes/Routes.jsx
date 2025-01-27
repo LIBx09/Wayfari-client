@@ -23,6 +23,7 @@ import UpdateStories from "../Pages/Dashboard/UpdateStories/UpdateStories";
 import PrivateRoute from "./PrivateRoute";
 import Community from "../Pages/Community/Community";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import Contact from "../components/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "/aboutUs",
         element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/signIn",

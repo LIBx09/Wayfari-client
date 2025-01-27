@@ -61,7 +61,7 @@ const Navbar = () => {
                   <Link to="/announcement">Announcement</Link>
                 </li>
                 <li>
-                  <Link to="/myArtifacts">My Artifacts</Link>
+                  <Link to="/packages">All Package</Link>
                 </li>
                 <li className="mt-2">
                   <button

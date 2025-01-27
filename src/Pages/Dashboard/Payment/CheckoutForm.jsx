@@ -80,7 +80,7 @@ const CheckoutForm = () => {
         });
 
       if (methodError) {
-        throw new Error(methodError.message);
+        toast.error(methodError.message);
       }
 
       const { error: confirmError, paymentIntent } =
@@ -94,7 +94,7 @@ const CheckoutForm = () => {
           },
         });
       if (confirmError) {
-        throw new Error(confirmError.message);
+        toast.error(confirmError.message);
       } else {
         setSuccess(`Payment successful! Transaction ID: ${paymentIntent.id}`);
         const payment = {

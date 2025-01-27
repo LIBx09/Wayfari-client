@@ -3,25 +3,59 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
 import Select from "react-select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate"; // Import the pagination component
 
 const options = [
-  { value: "tourist", label: "tourist" },
-  { value: "guide", label: "guide" },
-  { value: "admin", label: "admin" },
+  { value: "all", label: "All" },
+  { value: "tourist", label: "Tourist" },
+  { value: "guide", label: "Guide" },
+  { value: "admin", label: "Admin" },
 ];
 
 const AllUsers = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const axiosSecure = useAxiosSecure();
+  const [displaySearch, setDisplaySearch] = useState([]);
+  const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(0);
+  const [usersPerPage] = useState(10);
+
+  useEffect(() => {
+    if (search.trim()) {
+      axiosSecure.get(`/user-search?searchUserName=${search}`).then((res) => {
+        setDisplaySearch(res.data);
+      });
+    }
+  }, [axiosSecure, search]);
+
   const { data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
-      console.log(users);
       return res.data;
     },
   });
+
+  const filteredUsers = users.filter((user) => {
+    const matchesRole =
+      !selectedOption ||
+      selectedOption.value === "all" ||
+      selectedOption.value === user.role;
+    return matchesRole;
+  });
+
+  const usersToDisplay = search.trim() ? displaySearch : filteredUsers;
+
+  const indexOfLastUser = (currentPage + 1) * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = usersToDisplay.slice(indexOfFirstUser, indexOfLastUser);
+
+  // Handle page change
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
+
   return (
     <>
       <Helmet>
@@ -34,7 +68,12 @@ const AllUsers = () => {
       <div className="flex justify-between items-center my-5">
         <div>
           <label className="input input-bordered flex items-center gap-2 py-4">
-            <input type="text" className="grow" placeholder="Search" />
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              type="text"
+              className="grow"
+              placeholder="Search"
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -50,18 +89,15 @@ const AllUsers = () => {
           </label>
         </div>
         <div>
-          <div className="">
-            <Select
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={options}
-            />
-          </div>
+          <Select
+            defaultValue={selectedOption}
+            onChange={(selected) => setSelectedOption(selected)}
+            options={options}
+          />
         </div>
       </div>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
             <tr className="bg-orange-300">
               <th>No.</th>
@@ -71,17 +107,14 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, idx) => (
+            {currentUsers.map((user, idx) => (
               <tr key={user._id}>
-                <th>{idx + 1}</th>
+                <th>{indexOfFirstUser + idx + 1}</th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src={user.photo}
-                          alt="Avatar Tailwind CSS Component"
-                        />
+                        <img src={user.photo} alt="Avatar" />
                       </div>
                     </div>
                     <div>
@@ -95,6 +128,28 @@ const AllUsers = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="my-4">
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={Math.ceil(usersToDisplay.length / usersPerPage)} // Calculate the total page count
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={2}
+          onPageChange={handlePageChange}
+          containerClassName="flex items-center justify-center space-x-2"
+          pageClassName="flex" // Wrapper for each page
+          pageLinkClassName="px-3 py-1 border rounded-lg text-blue-600 border-blue-400 hover:bg-blue-500 hover:text-white transition" // Page links
+          activeClassName="bg-blue-600 text-white border-blue-600" // Active page
+          previousClassName="flex" // Previous button wrapper
+          previousLinkClassName="px-3 py-1 border rounded-lg text-blue-600 border-blue-400 hover:bg-blue-500 hover:text-white transition" // Previous button link
+          nextClassName="flex" // Next button wrapper
+          nextLinkClassName="px-3 py-1 border rounded-lg text-blue-600 border-blue-400 hover:bg-blue-500 hover:text-white transition" // Next button link
+          breakClassName="flex" // Wrapper for ellipsis
+          breakLinkClassName="px-3 py-1 text-blue-600" // Ellipsis styling
+          disabledClassName="opacity-50 cursor-not-allowed" // Disabled buttons
+        />
       </div>
     </>
   );

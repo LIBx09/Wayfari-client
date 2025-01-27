@@ -11,7 +11,7 @@ const Dashboard = () => {
     <>
       <div className="flex flex-col md:flex-row">
         {/* Sidebar */}
-        <div className="w-full md:w-64 h-auto md:h-screen sticky bg-orange-400">
+        <div className="w-full md:w-64 h-auto md:h-screen md:sticky top-0 bg-orange-400">
           <ul className="menu">
             {isAdmin && (
               <>

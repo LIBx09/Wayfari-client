@@ -2,7 +2,7 @@
 import { Fade } from "react-awesome-reveal";
 import { FaHeart, FaShareAlt } from "react-icons/fa";
 import { IoIosAdd } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
@@ -12,11 +12,13 @@ import { useState } from "react";
 /* eslint-disable react/prop-types */
 const SampleStoryCard = ({ story }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const { _id, description, favorite, images, title } = story;
+  const { _id, description, images, title } = story;
   const shareUrl = window.location.href;
   const { user } = useAuth();
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
+  const location = useLocation();
+  const isCommunity = location.pathname === "/community";
 
   const handleFavorite = async () => {
     if (!user?.email) {
@@ -80,9 +82,9 @@ const SampleStoryCard = ({ story }) => {
             {/* Like and Love Section */}
             <div className="absolute bottom-4 right-5 flex items-center gap-4 z-10 ">
               <Link to="community">
-                <button className="p-2 text-white font-bold rounded-full hover:bg-white/100 hover:text-black/100 transition">
-                  More
-                </button>
+                {!isCommunity && (
+                  <button className="btn btn-primary mt-3">More</button>
+                )}
               </Link>
               <Link to="/dashboard/addStories">
                 <button className="p-1 rounded-full hover:bg-white/100 text-white text-xl border hover:text-blue-500 transition">

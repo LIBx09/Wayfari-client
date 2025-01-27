@@ -6,8 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const BookingForm = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -17,7 +17,6 @@ const BookingForm = () => {
   const navigate = useNavigate();
   const [packageDetails, setPackageDetails] = useState([]);
   const { _id, tourPlaceName, price } = packageDetails;
-  //   console.log(_id, tourPlaceName, price);
 
   useEffect(() => {
     const tourDetail = JSON.parse(localStorage.getItem("packageDetails"));
@@ -39,7 +38,19 @@ const BookingForm = () => {
     axiosPublic.post("/bookings", bookingInfo).then((res) => {
       if (res.data.insertedId) {
         reset();
-        toast.success("Booking data added to the database successfully");
+        Swal.fire({
+          title: "Successfully booked a guide",
+          width: 600,
+          padding: "3em",
+          color: "#716add",
+          background: "#fff url(/images/trees.png)",
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url("/images/nyan-cat.gif")
+            left top
+            no-repeat
+          `,
+        });
       }
     });
     navigate("/dashboard/bookings");

@@ -10,14 +10,31 @@ import Swal from "sweetalert2";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { MdArrowForward } from "react-icons/md";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use";
 
 const BookingTours = () => {
+  const { width, height } = useWindowSize();
   const [bookings, refetch] = useBookingDB();
   const [showModal, setShowModal] = useState(false);
   const [isGuide] = useGuide();
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   // const navigate = useNavigate();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const totalPages = Math.ceil(bookings.length / itemsPerPage);
+
+  const currentBookings = bookings.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const handleCancel = async (id) => {
     console.log(id);
@@ -119,8 +136,8 @@ const BookingTours = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.length > 0 ? (
-              bookings.map((book, index) => {
+            {currentBookings.length > 0 ? (
+              currentBookings.map((book, index) => {
                 const {
                   data: {
                     touristPhoto,
@@ -128,6 +145,7 @@ const BookingTours = () => {
                     touristEmail,
                     touristNumber,
                     bookingDate,
+                    guideName,
                   },
                   _id,
                   packageName,
@@ -138,7 +156,9 @@ const BookingTours = () => {
                 return (
                   <tr key={book._id}>
                     <th>{index + 1}</th>
-                    <td>{packageName}</td>
+                    <td>
+                      {packageName} <br /> Guide:{guideName}
+                    </td>
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="avatar">
@@ -263,27 +283,38 @@ const BookingTours = () => {
             )}
           </tbody>
           {/* Table Footer */}
-          <tfoot>
-            <tr>
-              <th colSpan="6" className="text-center">
-                End of Bookings
-              </th>
-            </tr>
-          </tfoot>
+          <tfoot className=""></tfoot>
         </table>
       </div>
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Congratulations!</h2>
-            <p>
-              You’ve booked 3 tours! Enjoy a 10% discount on your next booking.
-            </p>
-            <button className="btn btn-primary mt-4" onClick={closeModal}>
-              Close
-            </button>
+      <div className="flex justify-center items-center mt-4">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            className={`btn btn-sm mx-1 ${
+              currentPage === index + 1 ? "btn-primary" : "btn-ghost"
+            }`}
+            onClick={() => handlePageChange(index + 1)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+      {!isGuide && showModal && (
+        <>
+          <Confetti width={width} height={height} />
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg">
+              <h2 className="text-xl font-bold mb-4">Congratulations!</h2>
+              <p>
+                You’ve booked 3 tours! Enjoy a 10% discount on your next
+                booking.
+              </p>
+              <button className="btn btn-primary mt-4" onClick={closeModal}>
+                Close
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
       {!isGuide && (
         <div className="text-center mt-10 bg-gradient-to-r from-blue-500 to-green-500 p-6 rounded-lg shadow-lg">
