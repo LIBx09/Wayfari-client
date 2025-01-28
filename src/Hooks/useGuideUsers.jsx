@@ -7,7 +7,7 @@ const useGuideUsers = () => {
     queryKey: ["guideUsers"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users/all/guide");
-      console.log("data", res.data);
+
       return res.data;
     },
   });

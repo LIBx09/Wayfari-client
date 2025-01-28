@@ -26,7 +26,6 @@ const BookingForm = () => {
   const { register, handleSubmit, setValue, reset } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data);
     const bookingInfo = {
       data,
       status: "pending",
@@ -54,7 +53,6 @@ const BookingForm = () => {
       }
     });
     navigate("/dashboard/bookings");
-    console.log(bookingInfo);
   };
 
   return (

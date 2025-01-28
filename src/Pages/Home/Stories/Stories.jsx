@@ -5,14 +5,11 @@ import SampleStoryCard from "./SampleStoryCard";
 
 const Stories = () => {
   const [sampleStory, setSampleStory] = useState();
-  console.log("sample", sampleStory);
+
   const axiosPublic = useAxiosPublic();
-  //   const { description, email, images, title } = sampleStory;
-  //   console.log("dest sample", description, email, images, title);
 
   useEffect(() => {
     axiosPublic.get("/stories/sample").then((res) => {
-      console.log(res.data);
       setSampleStory(res.data);
     });
   }, [axiosPublic]);

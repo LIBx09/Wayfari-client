@@ -9,31 +9,31 @@ import Loading from "../../../components/Loading/Loading";
 const TourAndGuide = () => {
   const [samplePackage, setSamplePackage] = useState([]);
   const [guides, setGuide] = useState([]);
-  //   console.log(samplePackage);
+
   const axiosPublic = useAxiosPublic();
   useEffect(() => {
     axiosPublic.get("/package/sample").then((res) => {
-      console.log(res.data);
       setSamplePackage(res.data);
     });
   }, [axiosPublic]);
 
   useEffect(() => {
-    axiosPublic.get("/users/guide/limit").then((res) => {
-      console.log(res.data);
+    axiosPublic.get("/users/guide/sample").then((res) => {
       setGuide(res.data);
     });
   }, [axiosPublic]);
 
   return (
-    <Tabs>
-      <TabList>
-        <Tab>Tourist Spots</Tab>
-        <Tab>Guides</Tab>
-      </TabList>
+    <Tabs className="w-10/12 mx-auto">
+      <div className="flex justify-between">
+        <TabList>
+          <Tab>Tourist Spots</Tab>
+          <Tab>Guides</Tab>
+        </TabList>
+      </div>
 
       <TabPanel>
-        <div className="mx-20 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
           {samplePackage?.length > 0 ? (
             samplePackage.map((item) => (
               <PackageCards key={item._id} item={item}></PackageCards>

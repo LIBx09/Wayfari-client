@@ -20,7 +20,6 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data);
     const { firstName, lastName, ...rest } = data;
     const name = `${firstName} ${lastName}`;
     const userData = {
@@ -28,12 +27,10 @@ const SignUp = () => {
       name,
       //   role: "Tourist",
     };
-    console.log(userData);
 
     //getting data for user create into auth
     createUser(userData?.email, userData?.password).then((result) => {
       const loggedUser = result.user;
-      console.log("logged user", loggedUser);
 
       //getting data for user profile update
       manageUserProfile(name, userData?.photo)
@@ -51,7 +48,7 @@ const SignUp = () => {
             }
           });
         })
-        .catch((errors) => console.log(errors));
+        .catch((errors) => errors);
       navigate("/");
     });
   };

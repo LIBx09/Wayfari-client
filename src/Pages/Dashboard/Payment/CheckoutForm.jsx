@@ -31,7 +31,7 @@ const CheckoutForm = () => {
           SetBookingData(response.data);
         })
         .catch((error) => {
-          console.log(error);
+          error;
         });
     }
   }, [axiosSecure, bookingId]);
@@ -103,8 +103,7 @@ const CheckoutForm = () => {
           email: user?.email,
           date: new Date().toLocaleString(),
         };
-        const res = await axiosSecure.put(`/bookings/${bookingId}`, payment);
-        console.log(res.data);
+        await axiosSecure.put(`/bookings/${bookingId}`, payment);
       }
 
       toast.success("Payment successful! Redirecting to dashboard...");

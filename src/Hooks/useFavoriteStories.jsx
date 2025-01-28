@@ -10,7 +10,7 @@ const useFavoriteStories = () => {
     queryKey: ["favoriteStories", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/stories/favorites/${user.email}`);
-      console.log("favorite story data", res.data);
+
       return res.data;
     },
   });

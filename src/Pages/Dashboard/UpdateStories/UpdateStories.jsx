@@ -17,8 +17,6 @@ const UpdateStories = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const handleAddImage = async (data) => {
-    console.log("data", data);
-
     const files = data.files;
     const uploadedImageUrls = [];
 
@@ -77,12 +75,11 @@ const UpdateStories = () => {
   }, [axiosPublic, id]);
 
   const handleDeleteImage = async (image) => {
-    console.log(image);
     try {
       const res = await axiosPublic.put(`/stories/manage-images/${id}`, {
         removeImage: image,
       });
-      console.log(res.data);
+
       if (res.data.modifiedCount > 0) {
         toast.success("Image Deleted Successfully");
         setStory((prevStory) => ({
@@ -91,7 +88,7 @@ const UpdateStories = () => {
         }));
       }
     } catch (error) {
-      console.error("Error deleting image:", error);
+      toast.error("Error deleting image:", error);
     }
   };
 

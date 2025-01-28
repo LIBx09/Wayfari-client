@@ -7,7 +7,6 @@ import SampleStoryCard from "../Home/Stories/SampleStoryCard";
 const Community = () => {
   const [allStories] = useAllStories();
   const [favoriteStories] = useFavoriteStories();
-  console.log(favoriteStories);
 
   return (
     <div className="w-10/12 mx-auto">

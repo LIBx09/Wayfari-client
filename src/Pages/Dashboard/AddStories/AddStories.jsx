@@ -13,8 +13,6 @@ const AddStories = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-
     const files = data.storyImages;
     const uploadedImageUrls = [];
 
@@ -34,8 +32,7 @@ const AddStories = () => {
           toast.success("Image uploaded successfully!");
         }
       } catch (error) {
-        console.error("Error uploading image:", error);
-        toast.error("Failed to upload image!");
+        toast.error("Failed to upload image!", error);
       }
     }
 
@@ -46,13 +43,10 @@ const AddStories = () => {
       email: user.email,
     };
 
-    console.log("Final Story Data:", storyData);
-
     try {
       const res = await axiosPublic.post("/stories", storyData);
       if (res.data.success) {
         toast.success("Story saved to database successfully!");
-        console.log("Story saved successfully:", res.data);
       }
     } catch (error) {
       toast.error("Failed to save story to database!", error);

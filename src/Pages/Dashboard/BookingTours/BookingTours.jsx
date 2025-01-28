@@ -37,7 +37,6 @@ const BookingTours = () => {
   };
 
   const handleCancel = async (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -49,7 +48,6 @@ const BookingTours = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosPublic.delete(`/bookings/${id}`).then((res) => {
-          console.log(res.data);
           if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted!",

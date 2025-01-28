@@ -7,7 +7,7 @@ const useAllStories = () => {
     queryKey: ["allStories"],
     queryFn: async () => {
       const res = await axiosSecure.get("/stories/all");
-      console.log("favorite story data", res.data);
+
       return res.data;
     },
   });

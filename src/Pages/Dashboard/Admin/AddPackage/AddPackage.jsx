@@ -10,8 +10,6 @@ const Addpackage = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    // console.log(data);
-    //here i edited data into array
     const tourPackageData = {
       ...data,
       dayDetail: data.dayDetail
@@ -21,16 +19,13 @@ const Addpackage = () => {
         .split(",")
         .filter((photo) => photo.trim() !== ""),
     };
-    console.log(tourPackageData);
 
-    // const tourPackageData = data;
     const packageDataRes = await axiosSecure.post("/package", tourPackageData);
-    // console.log(packageDataRes);
+
     if (packageDataRes.data.insertedId) {
       toast.success("data added successfully");
     }
     reset();
-    console.log(packageDataRes.data);
   };
 
   return (

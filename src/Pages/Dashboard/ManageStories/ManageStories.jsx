@@ -8,10 +8,8 @@ const ManageStories = () => {
   const axiosSecure = useAxiosSecure();
 
   const handleDelete = async (id) => {
-    console.log(id);
-
     const res = await axiosSecure.delete(`/stories/${id}`);
-    console.log(res.data);
+
     if (res.data.deletedCount) {
       toast.success("Story deleted successfully!");
       refetch();
@@ -21,7 +19,6 @@ const ManageStories = () => {
   };
 
   const handleImageDelete = async (storyId, imageUrl) => {
-    console.log(storyId, imageUrl);
     try {
       const res = await axiosSecure.put(`/stories/remove-image/${storyId}`, {
         imageUrl,

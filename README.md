@@ -105,4 +105,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or support, please contact [your-email@example.com].
+For any inquiries or support, please contact [ibrahimfuad729@gmail.com].

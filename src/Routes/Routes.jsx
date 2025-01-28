@@ -24,6 +24,8 @@ import PrivateRoute from "./PrivateRoute";
 import Community from "../Pages/Community/Community";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../components/Contact/Contact";
+import AdminRoutes from "./AdminRoutes";
+import Allpackage from "../Pages/AllPackage/Allpackage";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +46,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/package/details/${params.id}`),
+          fetch(
+            `https://wayfari-tourism-server.vercel.app/package/details/${params.id}`
+          ),
       },
       {
         path: "/details/:id/guideDetails/:guideId",
@@ -80,6 +84,10 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "/all-package",
+        element: <Allpackage />,
+      },
+      {
         path: "/aboutUs",
         element: <AboutUs />,
       },
@@ -110,19 +118,35 @@ const router = createBrowserRouter([
       //user & guide routes
       {
         path: "bookings",
-        element: <BookingTours />,
+        element: (
+          <PrivateRoute>
+            <BookingTours />
+          </PrivateRoute>
+        ),
       },
       {
         path: "payment",
-        element: <Payment />,
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
       },
       {
         path: "joinGuide",
-        element: <ApplyGuideForm />,
+        element: (
+          <PrivateRoute>
+            <ApplyGuideForm />
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageProfile",
-        element: <ManageProfile />,
+        element: (
+          <PrivateRoute>
+            <ManageProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "addStories",
@@ -134,29 +158,53 @@ const router = createBrowserRouter([
       },
       {
         path: "manageStories",
-        element: <ManageStories />,
+        element: (
+          <PrivateRoute>
+            <ManageStories />
+          </PrivateRoute>
+        ),
       },
       {
         path: "editStory/:id",
-        element: <UpdateStories />,
+        element: (
+          <PrivateRoute>
+            <UpdateStories />
+          </PrivateRoute>
+        ),
       },
 
       //admin routes
       {
         path: "adminHome",
-        element: <AdminHome />,
+        element: (
+          <AdminRoutes>
+            <AdminHome />
+          </AdminRoutes>
+        ),
       },
       {
         path: "addPackage",
-        element: <Addpackage />,
+        element: (
+          <AdminRoutes>
+            <Addpackage />
+          </AdminRoutes>
+        ),
       },
       {
         path: "allUsers",
-        element: <AllUsers />,
+        element: (
+          <AdminRoutes>
+            <AllUsers />
+          </AdminRoutes>
+        ),
       },
       {
         path: "apply",
-        element: <Applicants />,
+        element: (
+          <AdminRoutes>
+            <Applicants />
+          </AdminRoutes>
+        ),
       },
     ],
   },

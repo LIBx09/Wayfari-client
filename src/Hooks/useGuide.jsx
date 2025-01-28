@@ -5,15 +5,14 @@ import useAxiosSecure from "./useAxiosSecure";
 const useGuide = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: isGuide } = useQuery({
+  const { data: isGuide, isLoading } = useQuery({
     queryKey: [user?.email, "isGuide"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/admin/guide/${user.email}`);
-      console.log(res.data);
       return res.data?.guide;
     },
   });
-  return [isGuide];
+  return [isGuide, isLoading];
 };
 
 export default useGuide;

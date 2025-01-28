@@ -10,7 +10,7 @@ const useMyStories = () => {
     queryKey: ["myStories"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/stories/${user?.email}`);
-      console.log("Fetched Single User Data:", res.data);
+
       return res.data;
     },
   });

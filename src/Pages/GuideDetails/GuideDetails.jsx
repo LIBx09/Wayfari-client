@@ -12,13 +12,12 @@ import {
 const GuideDetails = () => {
   const { id, guideId } = useParams();
   const [guideData, setGuideData] = useState();
-  // console.log(guideData?.data?.name);
 
   useEffect(() => {
     // Determine the fetch URL based on the presence of 'id'
     const url = id
-      ? `http://localhost:5000/users/all/guide/${guideId}?detailsId=${id}`
-      : `http://localhost:5000/users/all/guide/${guideId}`;
+      ? `https://wayfari-tourism-server.vercel.app/users/all/guide/${guideId}?detailsId=${id}`
+      : `https://wayfari-tourism-server.vercel.app/users/all/guide/${guideId}`;
 
     fetch(url)
       .then((response) => response.json())

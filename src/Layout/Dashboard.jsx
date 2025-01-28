@@ -97,10 +97,7 @@ const Dashboard = () => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/menu">Menu</NavLink>
-            </li>
-            <li>
-              <NavLink to="/shop">Shop</NavLink>
+              <NavLink to="/all-package">All Packages</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
@@ -109,6 +106,7 @@ const Dashboard = () => {
         </div>
 
         {/* Main Content */}
+        {/* <h2 className="text-5xl font-bold"> Dashboard</h2> */}
         <div className="flex-grow w-full md:w-9/12 mx-auto p-4">
           <Outlet />
         </div>

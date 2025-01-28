@@ -61,7 +61,7 @@ const Navbar = () => {
                   <Link to="/announcement">Announcement</Link>
                 </li>
                 <li>
-                  <Link to="/packages">All Package</Link>
+                  <Link to="/all-package">All Package</Link>
                 </li>
                 <li className="mt-2">
                   <button

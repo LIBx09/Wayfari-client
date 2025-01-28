@@ -41,7 +41,11 @@ const Applicants = () => {
         setApplications((prev) =>
           prev.filter((app) => app._id !== application._id)
         );
-        Swal.fire("Success!", "The application has been accepted.", "success");
+        toast.success(
+          "Success!",
+          "The application has been accepted.",
+          "success"
+        );
       } else {
         toast.error("Failed to accept the application.");
       }

@@ -9,15 +9,11 @@ const ManageModal = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log("Updated Data:", data);
-
     const res = await axiosSecure.put(`/users/update/${singleUsers._id}`, data);
 
     if (res.data.modifiedCount > 0) {
       toast.success("user updated successfully");
     }
-
-    console.log(res.data);
 
     const modal = document.getElementById("my_modal_4");
     modal.close();
