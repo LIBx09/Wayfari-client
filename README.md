@@ -4,7 +4,7 @@
 
 ![Wayfari Tourism](wayfari.png)  
 
-Wayfari Tourism is a **modern and interactive travel guide** platform that provides detailed insights into popular destinations across **Bangladesh**. Whether you're planning a trip or exploring hidden gems, our platform offers **comprehensive travel information, cultural insights, and curated experiences** to enhance your journey.  
+Wayfari Tourism is an innovative travel platform designed to cater to a diverse range of users, including tourists, guides, and admins. The platform facilitates seamless bookings and payment processing through Stripe, ensuring a secure and convenient experience for all users. Tourists can explore and book unique travel experiences, while guides have the opportunity to apply and offer their expertise. Admins oversee the platform, managing users and ensuring smooth operations. Additionally, Wayfari Tourism allows users to share their personal travel stories, creating a community of adventurers. The platform also hosts images to enhance the visual appeal and storytelling aspect.
 
 🔗 **Live Site:** [Wayfari Tourism](https://watfari-tourism.web.app/)  
 📂 **GitHub Repo:** [View on GitHub](https://github.com/LIBx09)  
