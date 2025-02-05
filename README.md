@@ -2,7 +2,7 @@
 
 # 🌍 Wayfari Tourism - The Ultimate Tourist Guide  
 
-![Wayfari Tourism](https://via.placeholder.com/1200x400?text=Wayfari+Tourism)  
+![Wayfari Tourism](wayfari.png)  
 
 Wayfari Tourism is a **modern and interactive travel guide** platform that provides detailed insights into popular destinations across **Bangladesh**. Whether you're planning a trip or exploring hidden gems, our platform offers **comprehensive travel information, cultural insights, and curated experiences** to enhance your journey.  
 
