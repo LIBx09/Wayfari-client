@@ -1,8 +1,4 @@
-Here’s your **detailed and professional `README.md`** file for the **Wayfari Tourism** project.  
 
-This README is structured to impress hiring managers by providing a **clear, comprehensive, and professional** overview of your project. It includes an introduction, installation steps, environment variable setup (without exposing secrets), features, dependencies, and much more.  
-
----
 
 # 🌍 Wayfari Tourism - The Ultimate Tourist Guide  
 
@@ -10,20 +6,8 @@ This README is structured to impress hiring managers by providing a **clear, com
 
 Wayfari Tourism is a **modern and interactive travel guide** platform that provides detailed insights into popular destinations across **Bangladesh**. Whether you're planning a trip or exploring hidden gems, our platform offers **comprehensive travel information, cultural insights, and curated experiences** to enhance your journey.  
 
----
-
-## 📑 Table of Contents  
-
-- [Features](#features)  
-- [Tech Stack](#tech-stack)  
-- [Live Demo](#live-demo)  
-- [Installation](#installation)  
-- [Environment Variables](#environment-variables)  
-- [Usage](#usage)  
-- [API Endpoints](#api-endpoints)  
-- [License](#license)  
-- [Contributors](#contributors)  
-- [Contact](#contact)  
+🔗 **Live Site:** [Wayfari Tourism](https://watfari-tourism.web.app/)  
+📂 **GitHub Repo:** [View on GitHub](https://github.com/LIBx09)  
 
 ---
 
@@ -62,7 +46,7 @@ Wayfari Tourism is a **modern and interactive travel guide** platform that provi
 
 ## 🌎 Live Demo  
 
-🔗 **[Wayfari Tourism (Live)](https://your-live-demo-link.com)**  
+🔗 **[Wayfari Tourism (Live)](https://watfari-tourism.web.app/)**  
 
 ---
 
@@ -78,7 +62,7 @@ Follow these steps to set up the project on your local machine.
 ### **Clone the Repository:**  
 
 ```sh
-git clone https://github.com/yourusername/wayfari-tourism.git
+git clone https://github.com/LIBx09/wayfari-tourism.git
 cd wayfari-tourism
 ```
 
@@ -171,8 +155,9 @@ This project is **licensed under ISC**. Feel free to use and modify it.
 
 ## 👥 Contributors  
 
-👤 **Your Name** – [GitHub Profile](https://github.com/yourusername)  
-📩 **Email:** your.email@example.com  
+👤 **Ibrahim Fuad**  
+📂 **GitHub Profile:** [LIBx09](https://github.com/LIBx09)  
+📩 **Email:** ibrahimfuad729@gmail.com  
 
 Want to contribute? **Feel free to fork this repo and submit a pull request!** 🚀  
 
@@ -181,11 +166,6 @@ Want to contribute? **Feel free to fork this repo and submit a pull request!** �
 ## 📞 Contact  
 
 For questions or collaboration, reach out to:  
-✉️ Email: **support@wayfaritourism.com**  
-🌐 Website: **[Wayfari Tourism](https://wayfaritourism.com)**  
+✉️ **Email:** ibrahimfuad729@gmail.com  
+🌐 **Website:** [Wayfari Tourism](https://watfari-tourism.web.app/)  
 
----
-
-This README **looks professional, is well-structured, and provides all essential information** to impress a hiring manager! 🚀  
-
-Let me know if you need any refinements! 😊
