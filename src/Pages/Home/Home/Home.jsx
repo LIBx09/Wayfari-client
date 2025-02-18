@@ -9,7 +9,7 @@ import Framer from "../Framer/Framer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <Helmet>
         <title>Home || Wayfari</title>
       </Helmet>
@@ -24,7 +24,7 @@ const Home = () => {
         />
         <TourAndGuide />
       </section>
-      <section className="w-10/12 mx-auto">
+      <section>
         <SectionTitle heading="Overview" subHeading="" />
         <OverviewSection />
       </section>

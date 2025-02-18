@@ -14,7 +14,7 @@ const Stories = () => {
     });
   }, [axiosPublic]);
   return (
-    <div className="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
       {sampleStory?.length > 0 ? (
         sampleStory.map((story) => (
           <SampleStoryCard key={story._id} story={story} />

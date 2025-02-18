@@ -2,7 +2,7 @@ import logo from "../../../assets/logo.png";
 const Footer = () => {
   return (
     <div className="">
-      <footer className="footer w-10/12 mx-auto text-base-content p-10 ">
+      <footer className="footer w-11/12 mx-auto text-base-content p-10 ">
         <aside>
           <img className="w-28" src={logo} alt="" />
           <h2 className="font-bold text-2xl">Wayfari Tourism</h2>

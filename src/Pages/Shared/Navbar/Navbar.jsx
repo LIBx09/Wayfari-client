@@ -1,36 +1,88 @@
 import { CiUser } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/navlogo.PNG";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm  w-full border-b-2">
-        <div className="flex-1 w-11/12 mx-auto ">
+      <div className="navbar bg-base-100 shadow-sm  border-b-2 w-11/12 mx-auto">
+        <div className="flex-1">
           <Link to="/" className="flex gap-2 items-center">
-            <img className="w-auto h-16 ml-4" src={logo} alt="ssss" />
+            <img
+              className="w-auto h-16 bg-black p-2 dark:bg-white"
+              src={logo}
+              alt="ssss"
+            />
             <span className="font-bold">Wayfari Tourism</span>
           </Link>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="hidden md:flex gap-4 px-1">
             <li>
-              <Link to="/home">Home</Link>
+              <NavLink
+                to="/home"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-500 font-bold border-b-2 border-blue-500"
+                    : ""
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/aboutUs">About Us</Link>
+              <NavLink
+                to="/aboutUs"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-500 font-bold border-b-2 border-blue-500"
+                    : ""
+                }
+              >
+                About Us
+              </NavLink>
             </li>
             <li>
-              <Link to="/community">Community</Link>
+              <NavLink
+                to="/community"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-500 font-bold border-b-2 border-blue-500"
+                    : ""
+                }
+              >
+                Community
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-500 font-bold border-b-2 border-blue-500"
+                    : ""
+                }
+              >
+                Contact Me
+              </NavLink>
             </li>
 
             {!user && (
               <li>
-                <Link to="/signIn">Sign In</Link>
+                <NavLink
+                  to="/signIn"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-500 font-bold border-b-2 border-blue-500"
+                      : ""
+                  }
+                >
+                  Sign In
+                </NavLink>
               </li>
             )}
           </ul>
@@ -54,6 +106,17 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
+                <div className="md:hidden">
+                  <li>
+                    <Link to="/home">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/aboutUs">About Us</Link>
+                  </li>
+                  <li>
+                    <Link to="/community">Community</Link>
+                  </li>
+                </div>
                 <li>
                   <Link to="/dashboard">Dashboard</Link>
                 </li>

@@ -25,7 +25,7 @@ const TourAndGuide = () => {
   }, [axiosPublic]);
 
   return (
-    <Tabs className="w-10/12 mx-auto">
+    <Tabs>
       <div className="flex justify-between">
         <TabList>
           <Tab>Tourist Spots</Tab>
