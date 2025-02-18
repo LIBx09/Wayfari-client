@@ -105,7 +105,7 @@ const router = createBrowserRouter([
     children: [
       //user & guide routes
       {
-        path: "dashboard",
+        index: true,
         element: <DashOutlet />,
       },
       {

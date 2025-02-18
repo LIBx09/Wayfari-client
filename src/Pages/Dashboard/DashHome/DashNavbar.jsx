@@ -7,15 +7,20 @@ import logo from "../../../assets/logo.png";
 
 const DashNavbar = () => {
   const { user, logout } = useAuth();
-  const [booking] = useBookingDB();
-  console.log(booking.length);
+  const [bookings] = useBookingDB();
+
+  const totalPrice = bookings.reduce(
+    (acc, booking) => acc + (booking.paymentPrice || 0),
+    0
+  );
+  console.log(totalPrice);
 
   return (
     <div>
       <div className="navbar">
-        <div className="flex-1">
+        <div className="flex-1 hidden md:block">
           <Link to="/" className="flex gap-2 items-center">
-            <img className="w-auto h-16 ml-4" src={logo} alt="ssss" />
+            <img className="w-auto h-16" src={logo} alt="ssss" />
             <span className="font-bold">Wayfari Tourism</span>
           </Link>
         </div>
@@ -50,13 +55,15 @@ const DashNavbar = () => {
             >
               <div className="card-body">
                 <span className="text-lg font-bold">
-                  Booking {booking.length}
+                  Booking {bookings.length}
                 </span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="text-info">Subtotal: ${totalPrice}</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
+                  <Link to="/dashboard/bookings">
+                    <button className="btn btn-primary btn-block">
+                      View Bookings
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

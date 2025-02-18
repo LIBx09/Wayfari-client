@@ -19,22 +19,16 @@ const ManageProfile = () => {
         <span className="text-blue-500">{singleUsers?.name || "User"}</span>!
         Manage Your Profile
       </h2>
-
       {/* User Profile Card */}
-      <div className="flex flex-col max-w-3xl mx-auto gap-4 bg-white p-6 rounded-lg border">
+      <div className="max-w-3xl mx-auto gap-4 bg-white p-6 rounded-lg border">
         {/* Profile Picture */}
-        <img
-          src={singleUsers?.photo || "https://via.placeholder.com/150"}
-          alt={singleUsers?.name || "User Photo"}
-          className="w-24 h-24 rounded-full object-cover border shadow-md mx-auto"
-        />
 
         {/* Data Rows */}
-        <div className="w-full md:w-[600px] mx-auto space-y-5 flex flex-col md:flex-row items-center">
+        <div className="w-full border md:w-[600px] mx-auto space-y-5 flex flex-col md:flex-row justify-between items-center shadow-lg p-4">
           {/* First Column */}
-          <div className="mx-10 space-y-5">
+          <div className="">
             {/* Name */}
-            <div className="flex flex-col items-start gap-2">
+            <div className="">
               <label>
                 <h2 className="text-md font-bold">Name</h2>
               </label>
@@ -64,9 +58,25 @@ const ManageProfile = () => {
               </p>
             </div>
           </div>
+          <div>
+            <img
+              src={singleUsers?.photo || "https://via.placeholder.com/150"}
+              alt={singleUsers?.name || "User Photo"}
+              className="w-24 h-24 rounded-full object-cover border shadow-md mx-auto"
+            />
+            <div className="text-center">
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_4").showModal()
+                }
+                className="btn btn-primary btn-sm w-40 mx-auto mt-4"
+              >
+                Edit Profile
+              </button>
+            </div>
+          </div>
 
-          {/* Second Column */}
-          <div className="mx-10 space-y-5">
+          <div className="">
             {/* Location */}
             <div className="flex flex-col items-start gap-2">
               <label>
@@ -101,12 +111,6 @@ const ManageProfile = () => {
         </div>
 
         {/* Edit Button */}
-        <button
-          onClick={() => document.getElementById("my_modal_4").showModal()}
-          className="btn btn-primary btn-sm w-40 mx-auto mt-4"
-        >
-          Edit Profile
-        </button>
       </div>
 
       <ManageModal />

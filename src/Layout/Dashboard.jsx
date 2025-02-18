@@ -7,7 +7,6 @@ import DashNavbar from "../Pages/Dashboard/DashHome/DashNavbar";
 import logo from "../assets/logo.png";
 import sideImg from "../assets/dashSidebarImg.jpg";
 import { FaBars } from "react-icons/fa";
-import DashOutlet from "../Pages/Dashboard/DashOutlet/DashOutlet";
 // import DashFooter from "../Pages/Dashboard/DashHome/DashFooter";
 
 const Dashboard = () => {
@@ -33,11 +32,10 @@ const Dashboard = () => {
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               <FaBars className="text-slate-700 text-lg mt-2" /> <br />
-              <img className="w-auto h-8" src={logo} alt="ssss" />
+              <img className="w-auto h-12" src={logo} alt="ssss" />
               <br />
-              <span className="text-black text-lg mt-2">Wayfari</span>
             </button>
-            <div className="md:hidden ">
+            <div className=" md:hidden">
               <DashNavbar />
             </div>
           </div>
@@ -119,8 +117,6 @@ const Dashboard = () => {
         <div className="flex-grow w-full md:w-9/12 mx-auto p-4">
           <section className="-mt-[90px] md:-mt-4 border-b hidden md:block"></section>
           <Outlet />
-          <DashOutlet />
-          {/* <DashFooter /> */}
         </div>
       </div>
     </>
