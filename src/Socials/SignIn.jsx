@@ -11,7 +11,8 @@ const SignIn = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const email = [];
+  const email = "";
+  console.log("email", email);
 
   const handleSignIn = (e) => {
     e.preventDefault();

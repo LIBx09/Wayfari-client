@@ -5,16 +5,17 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const BookingForm = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [guideUsers] = useGuideUsers();
   const { user } = useAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [packageDetails, setPackageDetails] = useState([]);
   const { _id, tourPlaceName, price } = packageDetails;
 
@@ -34,7 +35,7 @@ const BookingForm = () => {
       packagePrice: price,
     };
 
-    axiosPublic.post("/bookings", bookingInfo).then((res) => {
+    axiosSecure.post("/bookings", bookingInfo).then((res) => {
       if (res.data.insertedId) {
         reset();
         Swal.fire({
@@ -52,7 +53,7 @@ const BookingForm = () => {
         });
       }
     });
-    navigate("/dashboard/bookings");
+    // navigate("/dashboard/bookings");
   };
 
   return (

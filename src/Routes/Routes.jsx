@@ -26,6 +26,8 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../components/Contact/Contact";
 import AdminRoutes from "./AdminRoutes";
 import Allpackage from "../Pages/AllPackage/Allpackage";
+import WelcomeMessage from "../components/WelcomeMessage/WelcomeMessage";
+import DashOutlet from "../Pages/Dashboard/DashOutlet/DashOutlet";
 
 const router = createBrowserRouter([
   {
@@ -35,36 +37,26 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <WelcomeMessage />,
+      },
+      {
+        path: "/home",
         element: <Home />,
       },
 
       {
         path: "details/:id",
-        element: (
-          <PrivateRoute>
-            <PackageDetail />
-          </PrivateRoute>
-        ),
+        element: <PackageDetail />,
         loader: ({ params }) =>
-          fetch(
-            `https://wayfari-tourism-server.vercel.app/package/details/${params.id}`
-          ),
+          fetch(`http://localhost:5000/package/details/${params.id}`),
       },
       {
         path: "/details/:id/guideDetails/:guideId",
-        element: (
-          <PrivateRoute>
-            <GuideDetails />
-          </PrivateRoute>
-        ),
+        element: <GuideDetails />,
       },
       {
         path: "guideDetails/:guideId",
-        element: (
-          <PrivateRoute>
-            <GuideDetails />
-          </PrivateRoute>
-        ),
+        element: <GuideDetails />,
       },
       {
         path: "/bookingForm",
@@ -76,11 +68,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/community",
-        element: (
-          <PrivateRoute>
-            <Community />
-          </PrivateRoute>
-        ),
+        element: <Community />,
       },
 
       {
@@ -105,7 +93,7 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/reset",
+        path: "reset",
         element: <LostPass />,
       },
     ],
@@ -116,6 +104,10 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       //user & guide routes
+      {
+        path: "dashboard",
+        element: <DashOutlet />,
+      },
       {
         path: "bookings",
         element: (

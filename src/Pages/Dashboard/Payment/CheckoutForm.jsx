@@ -19,6 +19,7 @@ const CheckoutForm = () => {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  // console.log(queryParams);
   const bookingId = queryParams.get("booking");
 
   const bookingPrice = parseInt(bookingData?.packagePrice);

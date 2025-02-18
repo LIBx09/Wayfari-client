@@ -9,7 +9,7 @@ const useSingleUsers = () => {
   const { data: singleUsers = [] } = useQuery({
     queryKey: ["singleUsers"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users/${user?.email}`); // Fix: Template string corrected
+      const res = await axiosSecure.get(`/users/${user?.email}`);
 
       return res.data;
     },

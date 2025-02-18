@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 import ParallaxContent from "../ParallaxContent/ParallaxContent";
 import OverviewSection from "../OverviewSection/OverviewSection";
 import Framer from "../Framer/Framer";
-import travel from "../../../assets/travel.JPG";
 
 const Home = () => {
   return (

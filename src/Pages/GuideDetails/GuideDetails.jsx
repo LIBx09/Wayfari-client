@@ -16,8 +16,8 @@ const GuideDetails = () => {
   useEffect(() => {
     // Determine the fetch URL based on the presence of 'id'
     const url = id
-      ? `https://wayfari-tourism-server.vercel.app/users/all/guide/${guideId}?detailsId=${id}`
-      : `https://wayfari-tourism-server.vercel.app/users/all/guide/${guideId}`;
+      ? `http://localhost:5000/users/all/guide/${guideId}?detailsId=${id}`
+      : `http://localhost:5000/users/all/guide/${guideId}`;
 
     fetch(url)
       .then((response) => response.json())

@@ -8,6 +8,7 @@ import Loading from "../../../components/Loading/Loading";
 
 const TourAndGuide = () => {
   const [samplePackage, setSamplePackage] = useState([]);
+  // console.log(samplePackage);
   const [guides, setGuide] = useState([]);
 
   const axiosPublic = useAxiosPublic();

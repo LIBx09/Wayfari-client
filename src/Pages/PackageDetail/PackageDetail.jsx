@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -14,11 +14,12 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const PackageDetail = () => {
   const detailPackage = useLoaderData();
+  console.log(detailPackage);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const [guideUsers] = useGuideUsers();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const {
     _id,
@@ -33,7 +34,7 @@ const PackageDetail = () => {
 
   const handleBookNow = () => {
     localStorage.setItem("packageDetails", JSON.stringify(detailPackage));
-    navigate("/bookingForm");
+    // navigate("/bookingForm");
   };
 
   return (

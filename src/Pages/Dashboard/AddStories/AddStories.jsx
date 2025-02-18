@@ -4,13 +4,19 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { toast } from "react-toastify";
 import useAuth from "../../../Hooks/useAuth";
+// import { useState } from "react";
+// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
-const image_hosting_key = import.meta.env.VITE_Image_Key;
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+// const image_hosting_key = import.meta.env.VITE_Image_Key;
+const CLOUD_NAME = "djl3urrwu";
+const image_hosting_api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
 const AddStories = () => {
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
+  // const axiosSecure = useAxiosSecure();
   const { register, handleSubmit, reset } = useForm();
+  // const [uplodedImageUrl, setUplodedImageUrl] = useState([]);
 
   const onSubmit = async (data) => {
     const files = data.storyImages;
@@ -18,19 +24,18 @@ const AddStories = () => {
 
     for (const file of files) {
       const formData = new FormData();
-      formData.append("image", file);
+      formData.append("file", file);
+      formData.append("upload_preset", "image_upload");
+      // formData.append("cloud_name", "djl3urrwu");
 
       try {
-        const res = await axiosPublic.post(image_hosting_api, formData, {
-          headers: {
-            "content-type": "multipart/form-data",
-          },
-        });
-
-        if (res.data && res.data.data && res.data.data.url) {
-          uploadedImageUrls.push(res.data.data.url);
+        const res = await axiosPublic.post(image_hosting_api, formData);
+        console.log(res.data);
+        if (res.data && res.data.url) {
+          uploadedImageUrls.push(res.data.url);
           toast.success("Image uploaded successfully!");
         }
+        console.log(uploadedImageUrls);
       } catch (error) {
         toast.error("Failed to upload image!", error);
       }

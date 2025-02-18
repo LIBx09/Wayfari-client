@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PackageCards = ({ item }) => {
   const { tourPlaceName, tripTitle, tourTypes, spotPhotos, price, _id } = item;
-
+  console.log(item);
   const firstImg = spotPhotos[0];
 
   return (

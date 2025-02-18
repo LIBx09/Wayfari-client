@@ -80,7 +80,7 @@ const SampleStoryCard = ({ story }) => {
 
           {/* Like and Love Section */}
           <div className="absolute bottom-4 right-5 flex items-center gap-4 z-10 ">
-            <Link to="community">
+            <Link to="/community">
               {!isCommunity && (
                 <button className="btn btn-primary mt-3">More</button>
               )}

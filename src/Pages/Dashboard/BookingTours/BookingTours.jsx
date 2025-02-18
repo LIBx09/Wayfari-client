@@ -16,6 +16,7 @@ import { useWindowSize } from "react-use";
 const BookingTours = () => {
   const { width, height } = useWindowSize();
   const [bookings, refetch] = useBookingDB();
+  console.log(bookings);
   const [showModal, setShowModal] = useState(false);
   const [isGuide] = useGuide();
   const axiosSecure = useAxiosSecure();

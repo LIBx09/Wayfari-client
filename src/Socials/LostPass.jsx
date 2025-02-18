@@ -1,48 +1,59 @@
 import { useState } from "react";
-import useAuth from "../Hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAuth from "../Hooks/useAuth";
 
 const LostPass = () => {
   const { user, forgotPassword } = useAuth();
+  const location = useLocation(); // ✅ Fix location issue
   const emailUri = new URLSearchParams(location.search);
   const fillEmail = emailUri.get("email") || "";
+
   const [email, setEmail] = useState(fillEmail || user?.email || "");
   const navigate = useNavigate();
 
-  const handleResetPassword = (e) => {
+  const handleResetPassword = async (e) => {
     e.preventDefault();
+
     if (!email) {
       toast.error("Please Provide an Email address");
+      return;
     }
-    forgotPassword(email)
-      .then((res) => {
-        setEmail(res);
-        navigate("/");
-        toast.success("Password reset Email sent successfully");
-      })
-      .catch((error) => {
-        console.error("Error sending password reset email:", error);
-        toast.error("Failed to send reset email. Please try again.");
-      });
+
+    try {
+      await forgotPassword(email); // ✅ Remove unnecessary setEmail
+      toast.success("Password reset email sent successfully");
+      navigate("/"); // ✅ Navigate only after success
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      toast.error("Failed to send reset email. Please try again.");
+    }
   };
 
   return (
-    <div>
+    <div className="flex justify-center items-center min-h-screen">
       <div
-        className="md:w-6/12 mx-auto bg-[#C2FFC7] p-20 rounded-lg"
+        className="md:w-6/12 bg-[#C2FFC7] p-10 rounded-lg shadow-lg"
         data-aos="zoom-in-up"
       >
-        <h3 className="font-bold text-lg mb-2">Get Reset Email!</h3>
-        <form onSubmit={handleResetPassword}>
+        <h3 className="font-bold text-lg mb-4">Get Reset Email!</h3>
+        <form
+          onSubmit={handleResetPassword}
+          className="flex flex-col space-y-4"
+        >
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            className="input input-bordered input-accent w-full max-w-xs"
+            type="email"
+            placeholder="Enter your email"
+            className="input input-bordered input-accent w-full"
+            required
           />
-          <button className="btn btn-outline outline-dotted mt-5 ml-4">
-            <a>Reset</a>
+          <button
+            type="submit"
+            className="btn btn-outline outline-dotted w-full"
+          >
+            Reset Password
           </button>
         </form>
       </div>

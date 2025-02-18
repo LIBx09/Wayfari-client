@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 import useAuth from "./useAuth";
-import useAxiosPublic from "./useAxiosPublic";
+
 import { useQuery } from "@tanstack/react-query";
 import useGuide from "./useguide";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useBookingDB = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [isGuide] = useGuide();
   const email = user?.email;
@@ -17,12 +18,13 @@ const useBookingDB = () => {
   } = useQuery({
     queryKey: ["bookings", email, role],
     queryFn: async () => {
-      const res = await axiosPublic.get("/bookings", {
+      const res = await axiosSecure.get("/bookings/all-bookings/data", {
         params: {
           email,
           role,
         },
       });
+      console.log("booking", res);
       return res.data;
     },
     enabled: !!user && role !== undefined,
