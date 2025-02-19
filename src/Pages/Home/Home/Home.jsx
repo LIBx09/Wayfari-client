@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 import ParallaxContent from "../ParallaxContent/ParallaxContent";
 import OverviewSection from "../OverviewSection/OverviewSection";
 import Framer from "../Framer/Framer";
+import FeatureGallery from "../FeatureGallery/FeatureGallery";
 
 const Home = () => {
   return (
@@ -37,6 +38,10 @@ const Home = () => {
           subHeading="We are just waiting for you"
         />
         <Framer />
+      </section>
+      <section className="">
+        <SectionTitle heading="Let's Go" subHeading="Feature Packages" />
+        <FeatureGallery />
       </section>
 
       <section>

@@ -2,7 +2,7 @@ import { CiUser } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import logo from "../../../assets/navlogo.PNG";
+import logo from "../../../assets/w1logo.svg";
 import ThemeToggle from "../../../components/ThemeToggle/ThemeToggle";
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="navbar bg-base-100 shadow-sm  border-b-2 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
         <div className="flex-1">
           <Link to="/" className="flex gap-2 items-center">
-            <img className="w-auto h-16 bg-black p-2 " src={logo} alt="ssss" />
+            <img className="w-auto h-16 p-2 " src={logo} alt="ssss" />
             <span className="font-bold">Wayfari Tourism</span>
           </Link>
         </div>

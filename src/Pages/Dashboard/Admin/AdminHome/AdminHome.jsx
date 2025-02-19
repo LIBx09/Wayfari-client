@@ -22,7 +22,7 @@ const AdminHome = () => {
       <Helmet>
         <title>Admin Home || Wayfari</title>
       </Helmet>
-      <SectionTitle heading="ADMIN HOME" />
+      <SectionTitle heading="ADMIN HOME" subHeading="Stats Table" />
       <div className="stats shadow flex flex-wrap justify-center gap-4">
         <div className="stat flex-1 min-w-[250px]">
           <div className="stat-figure text-secondary">
