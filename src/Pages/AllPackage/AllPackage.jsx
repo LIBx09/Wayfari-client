@@ -28,7 +28,9 @@ const AllPackage = () => {
   }
 
   if (isError) {
-    return <p className="text-red-500">Error: {error.message}</p>; // Display error message if the API call fails
+    return (
+      <p className="text-red-500 dark:text-red-400">Error: {error.message}</p>
+    ); // Error message color adjusted for dark mode
   }
 
   // **Sorting Logic**
@@ -46,7 +48,7 @@ const AllPackage = () => {
   });
 
   return (
-    <div className="p-4 w-11/12 mx-auto">
+    <div className="p-4 w-11/12 mx-auto bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
       <Helmet>
         <title>Packages || Wayfari</title>
       </Helmet>
@@ -60,10 +62,9 @@ const AllPackage = () => {
         <h1 className="text-2xl font-bold">Tour Packages</h1>
         <select
           onChange={(e) => setSortBy(e.target.value)}
-          className="select select-bordered w-40"
+          className="select select-bordered w-40 bg-gray-100 dark:bg-gray-800 dark:text-white border-gray-300 dark:border-gray-600"
         >
           <option value="default">Sort By</option>
-          <option value="id">ID</option>
           <option value="placeName">Place Name</option>
           <option value="tripTitle">Trip Title</option>
           <option value="lowToHigh">Price (Low to High)</option>
@@ -78,7 +79,9 @@ const AllPackage = () => {
             <PackageCards key={item._id} item={item} />
           ))
         ) : (
-          <p className="text-gray-500">No packages available</p>
+          <p className="text-gray-500 dark:text-gray-400">
+            No packages available
+          </p>
         )}
       </div>
     </div>

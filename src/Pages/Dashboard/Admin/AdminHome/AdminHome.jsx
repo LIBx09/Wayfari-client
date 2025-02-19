@@ -3,6 +3,7 @@ import ManageProfile from "../../ManageProfile/ManageProfile";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import Chart from "../../../../components/Chart/Chart";
 
 const AdminHome = () => {
   const axiosSecure = useAxiosSecure();
@@ -15,9 +16,9 @@ const AdminHome = () => {
       return res.data;
     },
   });
-
+  console.log(adminStatData);
   return (
-    <div className="w-10/12 mx-auto">
+    <div className=" mx-auto">
       <Helmet>
         <title>Admin Home || Wayfari</title>
       </Helmet>
@@ -109,7 +110,7 @@ const AdminHome = () => {
           <div className="stat-desc">↘︎ 90 (14%)</div>
         </div>
       </div>
-
+      <Chart adminStatData={adminStatData} />
       <ManageProfile />
     </div>
   );

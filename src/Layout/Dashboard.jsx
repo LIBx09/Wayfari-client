@@ -49,6 +49,9 @@ const Dashboard = () => {
               {isAdmin && (
                 <>
                   <li>
+                    <Link to="/dashboard">DASHBOARD</Link>
+                  </li>
+                  <li>
                     <NavLink to="/dashboard/adminHome">ADMIN HOME</NavLink>
                   </li>
                   <li>
@@ -64,6 +67,9 @@ const Dashboard = () => {
               )}
               {isGuide && (
                 <>
+                  <li>
+                    <Link to="/dashboard">DASHBOARD</Link>
+                  </li>
                   <li>
                     <NavLink to="/dashboard/manageProfile">
                       MANAGE PROFILE

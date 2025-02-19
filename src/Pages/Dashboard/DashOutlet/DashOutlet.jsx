@@ -4,6 +4,7 @@ import { MdPendingActions } from "react-icons/md";
 import useBookingDB from "../../../Hooks/useBookingDB";
 import ManageProfile from "../ManageProfile/ManageProfile";
 import BookingTours from "../BookingTours/BookingTours";
+import Chart from "../../../components/Chart/Chart";
 
 const DashOutlet = () => {
   const [bookings] = useBookingDB();
@@ -52,6 +53,7 @@ const DashOutlet = () => {
           </div>
         </div>
       </div>
+      <Chart />
       <ManageProfile />
       <BookingTours />
     </>

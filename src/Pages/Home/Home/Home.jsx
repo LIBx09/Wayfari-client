@@ -13,7 +13,7 @@ const Home = () => {
       <Helmet>
         <title>Home || Wayfari</title>
       </Helmet>
-      <section>
+      <section className="my-10">
         <Banner />
       </section>
       {/* todo here one more section need to added */}
@@ -25,11 +25,17 @@ const Home = () => {
         <TourAndGuide />
       </section>
       <section>
-        <SectionTitle heading="Overview" subHeading="" />
+        <SectionTitle
+          heading="Overview"
+          subHeading="You can get The idea about our site"
+        />
         <OverviewSection />
       </section>
       <section className="">
-        <SectionTitle heading="Overview" subHeading="" />
+        <SectionTitle
+          heading="Let's Go"
+          subHeading="We are just waiting for you"
+        />
         <Framer />
       </section>
 
@@ -40,7 +46,7 @@ const Home = () => {
         />
         <ParallaxContent />
       </section>
-      <section>
+      <section className="mb-10">
         <SectionTitle
           heading="Random Stories"
           subHeading="You can Love Share and add to the favorite list"

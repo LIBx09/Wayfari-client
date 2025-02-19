@@ -15,87 +15,87 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     alert("Thank you for your message! We will get back to you soon.");
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen bg-base-200 py-10">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-primary mb-6">
-          Contact Me
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12">
+      <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">
+          Contact Us
         </h2>
-        <p className="text-center text-gray-600 mb-10">
-          I’d love to hear from you! Whether you have a question or just want to
-          say hello, feel free to reach out.
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-10">
+          Have a question or inquiry? Fill out the form below, and we’ll get
+          back to you as soon as possible.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Contact Links */}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Contact Information */}
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <FaLink className="text-2xl text-blue-500" />
+              <FaLink className="text-2xl text-blue-600" />
               <a
                 href="https://visa-navigator-6e2d7.web.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-lg text-blue-600 hover:underline"
-                aria-label="Visit Visa Navigator"
               >
-                https://visa-navigator-6e2d7.web.app/
+                Visa Navigator
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <FaLink className="text-2xl text-green-500" />
+              <FaLink className="text-2xl text-blue-600" />
               <a
                 href="https://timekeeper-s-archive.web.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg text-green-600 hover:underline"
-                aria-label="Visit Timekeeper's Archive"
+                className="text-lg text-blue-600 hover:underline"
               >
-                https://timekeeper-s-archive.web.app/
+                Timekeeper&apos;s Archive
               </a>
             </div>
             <div className="flex items-center gap-4">
-              <FaLink className="text-2xl text-red-500" />
+              <FaLink className="text-2xl text-blue-600" />
               <a
                 href="https://ling-guru.web.app/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg text-red-600 hover:underline"
-                aria-label="Visit Ling Guru"
+                className="text-lg text-blue-600 hover:underline"
               >
-                https://ling-guru.web.app/about
+                Ling Guru
               </a>
             </div>
-          </div>
 
-          {/* Contact Details */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <FaPhone className="text-2xl text-blue-500" />
-              <p className="text-lg">+123 456 7890</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <FaEnvelope className="text-2xl text-green-500" />
-              <p className="text-lg">contact@yourdomain.com</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <FaMapMarkerAlt className="text-2xl text-red-500" />
-              <p className="text-lg">
-                123 Your Street, Your City, Your Country
-              </p>
+            <div className="border-t pt-6 space-y-4">
+              <div className="flex items-center gap-4">
+                <FaPhone className="text-2xl text-gray-700 dark:text-gray-300" />
+                <p className="text-lg text-gray-800 dark:text-gray-300">
+                  +123 456 7890
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <FaEnvelope className="text-2xl text-gray-700 dark:text-gray-300" />
+                <p className="text-lg text-gray-800 dark:text-gray-300">
+                  contact@yourdomain.com
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <FaMapMarkerAlt className="text-2xl text-gray-700 dark:text-gray-300" />
+                <p className="text-lg text-gray-800 dark:text-gray-300">
+                  123 Your Street, Your City, Your Country
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-6 rounded-lg shadow-md space-y-4 md:col-span-2"
+            className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-4"
           >
             <div>
-              <label className="block text-lg font-semibold mb-2">
+              <label className="block text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                 Your Name
               </label>
               <input
@@ -103,13 +103,13 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your name"
                 required
               />
             </div>
             <div>
-              <label className="block text-lg font-semibold mb-2">
+              <label className="block text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                 Your Email
               </label>
               <input
@@ -117,20 +117,20 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your email"
                 required
               />
             </div>
             <div>
-              <label className="block text-lg font-semibold mb-2">
+              <label className="block text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                 Your Message
               </label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows="4"
                 placeholder="Write your message"
                 required
@@ -138,7 +138,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="btn btn-primary w-full py-3 text-lg"
+              className="w-full bg-blue-600 dark:bg-blue-500 text-white py-3 text-lg font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-blue-400 transition"
             >
               Send Message
             </button>
