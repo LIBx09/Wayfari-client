@@ -332,7 +332,6 @@ const BookingTours = () => {
           </Link>
         </div>
       )}
-      {/* <CheckoutForm /> */}
     </>
   );
 };

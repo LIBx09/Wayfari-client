@@ -7,6 +7,7 @@ import ParallaxContent from "../ParallaxContent/ParallaxContent";
 import OverviewSection from "../OverviewSection/OverviewSection";
 import Framer from "../Framer/Framer";
 import FeatureGallery from "../FeatureGallery/FeatureGallery";
+import Review from "../../../components/Review/Review";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       <Helmet>
         <title>Home || Wayfari</title>
       </Helmet>
-      <section className="my-10">
+      <section className="my-15">
         <Banner />
       </section>
       {/* todo here one more section need to added */}
@@ -57,6 +58,10 @@ const Home = () => {
           subHeading="You can Love Share and add to the favorite list"
         />
         <Stories />
+      </section>
+      <section className="mb-10">
+        <SectionTitle heading="reviews" subHeading="What's Our Client Say" />
+        <Review />
       </section>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
@@ -11,105 +12,126 @@ import {
 
 const GuideDetails = () => {
   const { id, guideId } = useParams();
-  const [guideData, setGuideData] = useState();
+  console.log("sadfasd", id, guideId);
+  const [guideData, setGuideData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Error state
 
   useEffect(() => {
-    // Determine the fetch URL based on the presence of 'id'
     const url = id
       ? `http://localhost:5000/users/all/guide/${guideId}?detailsId=${id}`
       : `http://localhost:5000/users/all/guide/${guideId}`;
 
     fetch(url)
-      .then((response) => response.json())
-      .then((data) => setGuideData(data.data))
-      .catch((error) => console.error(error));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch guide data.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setGuideData(data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError("An error occurred while fetching the data.");
+        setLoading(false);
+      });
   }, [id, guideId]);
 
+  if (loading) {
+    return (
+      <p className="text-center text-gray-600 dark:text-gray-400">Loading...</p>
+    );
+  }
+
+  if (error) {
+    return <p className="text-center text-red-500">{error}</p>;
+  }
+
   if (!guideData) {
-    return <p>Loading...</p>;
+    return <p className="text-center text-red-500">No guide found.</p>;
   }
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl text-center font-bold mb-6">
-        Guide Details: <span className="text-blue-500">{guideData.name}</span>
-      </h2>
+    <div className="p-6 flex justify-center">
+      <div className="max-w-3xl w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        {/* Guide Header */}
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Guide Details:{" "}
+            <span className="text-blue-500">{guideData.name || "Unknown"}</span>
+          </h2>
+        </div>
 
-      {/* Guide Profile Card */}
-      <div className="flex flex-col max-w-3xl mx-auto gap-4 bg-white p-6 rounded-lg border shadow-md">
-        {/* Profile Picture */}
-        <img
-          src={guideData.photo || "default-avatar.jpg"} // Fallback to a default image if not available
-          alt={guideData.name}
-          className="w-24 h-24 rounded-full object-cover border shadow-md mx-auto"
-        />
+        {/* Profile Image */}
+        <div className="flex justify-center my-4">
+          <img
+            src={guideData.photo || "/default-avatar.jpg"} // Fallback image
+            alt={guideData.name || "Guide Photo"}
+            className="w-28 h-28 rounded-full object-cover border shadow-md"
+          />
+        </div>
 
-        <div className="w-full md:w-[600px] mx-auto space-y-5 flex flex-col md:flex-row items-center">
-          {/* Data Rows */}
-          <div className="mx-10 space-y-5">
-            <div className="flex flex-col items-start gap-2">
-              <label>
-                <h2 className="text-md font-bold">Name</h2>
-              </label>
-              <h3 className="text-xl font-semibold flex items-center gap-2">
-                <FaUserCircle className="text-blue-500" />
-                {guideData.name || "Name not available"}
-              </h3>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <label>
-                <h2 className="text-md font-bold">Email</h2>
-              </label>
-              <p className="text-gray-600 flex items-center gap-2">
-                <FaEnvelope className="text-green-500" />
-                {guideData.email || "Email not available"}
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <label>
-                <h2 className="text-md font-bold">Role</h2>
-              </label>
-              <p className="text-gray-600 flex items-center gap-2">
-                <FaBriefcase className="text-purple-500" />
-                {guideData.role || "Role not available"}
-              </p>
-            </div>
+        {/* Guide Information */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Column 1 */}
+          <div className="space-y-4">
+            <InfoRow
+              icon={<FaUserCircle className="text-blue-500" />}
+              label="Name"
+              value={guideData.name}
+            />
+            <InfoRow
+              icon={<FaEnvelope className="text-green-500" />}
+              label="Email"
+              value={guideData.email}
+            />
+            <InfoRow
+              icon={<FaBriefcase className="text-purple-500" />}
+              label="Role"
+              value={guideData.role}
+            />
           </div>
 
-          {/* Second Row */}
-          <div className="mx-10 space-y-5">
-            <div className="flex flex-col items-start gap-2">
-              <label>
-                <h2 className="text-md font-bold">Location</h2>
-              </label>
-              <p className="text-gray-600 flex items-center gap-2">
-                <FaMapMarkerAlt className="text-red-500" />
-                {guideData.location || "Location not available"}
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <label>
-                <h2 className="text-md font-bold">Phone</h2>
-              </label>
-              <p className="text-gray-600 flex items-center gap-2">
-                <FaPhone className="text-yellow-500" />
-                {guideData.phone || "Phone not available"}
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <label>
-                <h2 className="text-md font-bold">Bio</h2>
-              </label>
-              <p className="text-gray-600 flex items-center gap-2">
-                <FaInfoCircle className="text-blue-400" />
-                {guideData.bio || "Bio not available"}
-              </p>
-            </div>
+          {/* Column 2 */}
+          <div className="space-y-4">
+            <InfoRow
+              icon={<FaMapMarkerAlt className="text-red-500" />}
+              label="Location"
+              value={guideData.location}
+            />
+            <InfoRow
+              icon={<FaPhone className="text-yellow-500" />}
+              label="Phone"
+              value={guideData.phone}
+            />
+            <InfoRow
+              icon={<FaInfoCircle className="text-blue-400" />}
+              label="Bio"
+              value={guideData.bio}
+            />
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+// Reusable Information Row Component
+const InfoRow = ({ icon, label, value }) => (
+  <div className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-gray-700 rounded-md shadow-sm">
+    {icon}
+    <div>
+      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+        {label}
+      </h3>
+      <p className="text-md text-gray-600 dark:text-gray-200">
+        {value || "Not available"}
+      </p>
+    </div>
+  </div>
+);
 
 export default GuideDetails;

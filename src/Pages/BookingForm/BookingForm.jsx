@@ -132,6 +132,7 @@ const BookingForm = () => {
                   type="number"
                   placeholder="Price"
                   className="input input-bordered w-full "
+                  value={price}
                 />
               </label>
             </div>

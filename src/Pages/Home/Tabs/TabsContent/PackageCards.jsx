@@ -6,7 +6,7 @@ const PackageCards = ({ item }) => {
   const firstImg = spotPhotos[0];
 
   return (
-    <div className="max-w-sm bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300">
+    <div className=" bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md overflow-hidden transition-all duration-300">
       {/* Image Wrapper with Hover Effects */}
       <div className="relative group w-full h-64 overflow-hidden">
         <img

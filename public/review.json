@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "location": "Paris, France",
+    "rating": 5,
+    "review": "Paris is absolutely breathtaking! The Eiffel Tower at night is a must-see, and the local cafes serve amazing croissants."
+  },
+  {
+    "id": 2,
+    "name": "Emily Smith",
+    "location": "Bali, Indonesia",
+    "rating": 4.5,
+    "review": "Bali is a paradise with stunning beaches and lush greenery. The only downside is that some tourist areas can get quite crowded."
+  },
+  {
+    "id": 3,
+    "name": "Carlos Mendes",
+    "location": "Rio de Janeiro, Brazil",
+    "rating": 5,
+    "review": "The energy in Rio is unmatched! Copacabana Beach and Christ the Redeemer were unforgettable experiences."
+  },
+  {
+    "id": 4,
+    "name": "Sophia Lee",
+    "location": "Kyoto, Japan",
+    "rating": 5,
+    "review": "Kyoto is rich in history and culture. The temples and cherry blossoms create a magical atmosphere."
+  },
+  {
+    "id": 5,
+    "name": "David Brown",
+    "location": "New York City, USA",
+    "rating": 4,
+    "review": "NYC is exciting with so much to see and do! Times Square is dazzling, but the city is very busy and can be overwhelming."
+  },
+  {
+    "id": 6,
+    "name": "Isla Thompson",
+    "location": "Santorini, Greece",
+    "rating": 5,
+    "review": "Santorini is stunning! The white-washed buildings with blue domes and the sunset views are unforgettable."
+  },
+  {
+    "id": 7,
+    "name": "Liam Patel",
+    "location": "Dubai, UAE",
+    "rating": 4.5,
+    "review": "Dubai is a futuristic city with incredible skyscrapers and luxury shopping. The desert safari was the highlight of my trip!"
+  },
+  {
+    "id": 8,
+    "name": "Hannah Wilson",
+    "location": "Rome, Italy",
+    "rating": 5,
+    "review": "Rome is like an open-air museum! The Colosseum and Vatican City are must-visits for history lovers."
+  },
+  {
+    "id": 9,
+    "name": "Ethan Garcia",
+    "location": "Cape Town, South Africa",
+    "rating": 5,
+    "review": "Cape Town offers amazing landscapes, from Table Mountain to beautiful beaches. The wildlife safaris nearby are also a must!"
+  },
+  {
+    "id": 10,
+    "name": "Olivia Martinez",
+    "location": "Bangkok, Thailand",
+    "rating": 4,
+    "review": "Bangkok is a city full of life, with delicious street food and stunning temples. However, the traffic can be a bit chaotic."
+  }
+]

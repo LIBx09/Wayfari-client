@@ -4,13 +4,15 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import logo from "../../../assets/w1logo.svg";
 import ThemeToggle from "../../../components/ThemeToggle/ThemeToggle";
+import useSingleUsers from "../../../Hooks/useSingleUsers";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const [singleUsers] = useSingleUsers();
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm  border-b-2 w-11/12 mx-auto dark:bg-gray-900 dark:text-white">
+      <div className="navbar sticky z-20 top-0 bg-base-100 shadow-sm  border-b-2 mx-auto dark:bg-gray-900 dark:text-white w-11/12">
         <div className="flex-1">
           <Link to="/" className="flex gap-2 items-center">
             <img className="w-auto h-16 p-2 " src={logo} alt="ssss" />
@@ -97,6 +99,9 @@ const Navbar = () => {
                     alt="User Profile Photo"
                     src={user?.photoURL}
                   />
+                </div>
+                <div className="font-bold text-sm -mt-2 text-gray-600 dark:text-white ">
+                  <span>{singleUsers.role}</span>
                 </div>
               </div>
               <ul

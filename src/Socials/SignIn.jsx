@@ -41,6 +41,11 @@ const SignIn = () => {
     <div className="flex flex-col lg:flex-row w-10/12 mx-auto p-10 rounded-xl items-center">
       <div className="card glass-effect bg-base-100  shrink-0 shadow-2xl w-full lg:w-5/12 mx-auto">
         <div className="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <div className="text-center border rounded-lg">
+            <span>fuad@faw.com / 111111 /Admin Email & Pass</span>
+            <h2>ibrahim@gmail.com / 111111 / Tourist Email & Pass</h2>
+            <h2>fuad@fun.com / 111111 / Guide Email & Pass</h2>
+          </div>
           <form onSubmit={handleSignIn} className="space-y-6" action="#">
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
               Sign in to our platform

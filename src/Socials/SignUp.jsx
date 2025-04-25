@@ -29,8 +29,8 @@ const SignUp = () => {
     };
 
     //getting data for user create into auth
-    createUser(userData?.email, userData?.password).then((result) => {
-      const loggedUser = result.user;
+    createUser(userData?.email, userData?.password).then(() => {
+      // const loggedUser = result.user;
 
       //getting data for user profile update
       manageUserProfile(name, userData?.photo)

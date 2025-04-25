@@ -53,7 +53,7 @@ const DashOutlet = () => {
           </div>
         </div>
       </div>
-      <Chart />
+      {/* <Chart /> */}
       <ManageProfile />
       <BookingTours />
     </>

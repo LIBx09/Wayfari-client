@@ -10,6 +10,7 @@ const TourAndGuide = () => {
   const [samplePackage, setSamplePackage] = useState([]);
   // console.log(samplePackage);
   const [guides, setGuide] = useState([]);
+  console.log(guides);
 
   const axiosPublic = useAxiosPublic();
   useEffect(() => {
@@ -47,7 +48,7 @@ const TourAndGuide = () => {
         </div>
       </TabPanel>
       <TabPanel>
-        <div className="mx-20 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="mx-10 grid grid-cols-1 md:grid-cols-3 gap-4">
           {guides?.length > 0 ? (
             guides.map((guide) => (
               <GuideCards key={guide._id} guide={guide}></GuideCards>
