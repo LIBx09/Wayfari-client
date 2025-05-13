@@ -18,7 +18,7 @@ const Nav = () => {
   ];
 
   return (
-    <div className="navbar sticky z-20 top-0 w-10/12 mx-auto bg-base-100 ">
+    <div className="navbar sticky z-20 top-0 w-11/12 mx-auto bg-base-100 ">
       {/* Navbar Start */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -89,7 +89,7 @@ const Nav = () => {
       {/* Navbar End */}
       <div className="navbar-end">
         {!user ? (
-          <Link to="/login" className="btn btn-sm btn-primary">
+          <Link to="/signIn" className="btn btn-sm btn-primary">
             Login
           </Link>
         ) : (

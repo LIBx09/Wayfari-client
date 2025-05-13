@@ -24,7 +24,7 @@ const Community = () => {
         <title>Community || Wayfari</title>
       </Helmet>
 
-      <div className="w-11/12 md:w-10/12 mx-auto backdrop-blur-sm bg-white/30 p-6 rounded-md shadow-md">
+      <div className="w-11/12 mx-auto backdrop-blur-sm bg-white/30 p-6 rounded-md shadow-md">
         <SectionTitle
           heading="Community Stories"
           subHeading="Spread your tour experience to inspire others"

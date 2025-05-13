@@ -20,7 +20,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   //states
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   //google login
   const Google = new GoogleAuthProvider();
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
   //logout
   const logout = () => {
     setLoading(true);
-    signOut(auth);
+    return signOut(auth);
   };
 
   //forgot password

@@ -3,12 +3,13 @@ import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 
 const useSingleUsers = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  console.log("Auth User:", user);
   const axiosSecure = useAxiosSecure();
 
   const { data: singleUsers = [] } = useQuery({
     queryKey: ["singleUsers"],
-    enabled: !!user?.email,
+    enabled: !!user?.email && !loading, // ✅ Only run if user is available and not loading
 
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/${user?.email}`, {
