@@ -103,6 +103,24 @@ const ManageProfile = () => {
               </div>
             </div>
           </div>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <span className="inline-block bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full">
+              #JavaScript
+            </span>
+            <span className="inline-block bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full">
+              #React
+            </span>
+            <span className="inline-block bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full">
+              #MongoDB
+            </span>
+            <span className="inline-block bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full">
+              #NodeJS
+            </span>
+
+            <span className="inline-block bg-pink-100 text-pink-700 text-sm px-3 py-1 rounded-full">
+              #RemoteWork
+            </span>
+          </div>
         </div>
       </div>
 
