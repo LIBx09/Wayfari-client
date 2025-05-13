@@ -8,9 +8,14 @@ const useSingleUsers = () => {
 
   const { data: singleUsers = [] } = useQuery({
     queryKey: ["singleUsers"],
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/users/${user?.email}`);
+    enabled: !!user?.email,
 
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/users/${user?.email}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`, // ✅ Include token
+        },
+      });
       return res.data;
     },
   });

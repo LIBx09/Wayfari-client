@@ -8,6 +8,7 @@ import OverviewSection from "../OverviewSection/OverviewSection";
 import Framer from "../Framer/Framer";
 import FeatureGallery from "../FeatureGallery/FeatureGallery";
 import Review from "../../../components/Review/Review";
+import Peps from "../PepsPic/Peps";
 
 const Home = () => {
   return (
@@ -62,6 +63,9 @@ const Home = () => {
       <section className="mb-10">
         <SectionTitle heading="reviews" subHeading="What's Our Client Say" />
         <Review />
+      </section>
+      <section className="mb-10 mt-48">
+        <Peps />
       </section>
     </div>
   );

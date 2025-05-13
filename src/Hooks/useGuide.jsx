@@ -8,7 +8,7 @@ const useGuide = () => {
   const axiosPublic = useAxiosPublic();
   // console.log("email", user.email);
   // const axiosSecure = useAxiosSecure();
-  console.log("Fetching guide role for:", user?.email);
+  // console.log("Fetching guide role for:", user?.email);
 
   const { data: isGuide, isLoading } = useQuery({
     queryKey: [user?.email, "isGuide"],

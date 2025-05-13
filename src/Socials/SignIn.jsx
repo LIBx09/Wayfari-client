@@ -12,7 +12,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const email = "";
-  console.log("email", email);
+  // console.log("email", email);
 
   const handleSignIn = (e) => {
     e.preventDefault();

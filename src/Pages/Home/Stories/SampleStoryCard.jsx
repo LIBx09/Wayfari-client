@@ -22,11 +22,11 @@ const SampleStoryCard = ({ story }) => {
 
   const handleFavorite = async () => {
     if (!user?.email) {
-      navigate("signIn");
+      navigate("/signIn");
     }
     const res = await axiosPublic.post("/stories/favorite", {
       storyId: _id,
-      email: user.email,
+      email: user?.email,
     });
 
     if (res.data.modifiedCount > 0) {
