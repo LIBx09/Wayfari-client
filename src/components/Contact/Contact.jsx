@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLink } from "react-icons/fa";
+import contactBg from "../../assets/contactBg.jpg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +21,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12">
+    <div
+      className="min-h-screen bg-gray-100 dark:bg-gray-900 py-12 bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: `url(${contactBg})` }}
+    >
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">
           Contact Us
