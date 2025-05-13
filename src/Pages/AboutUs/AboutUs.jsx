@@ -9,6 +9,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import AboutSite from "./AboutSite";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -17,7 +18,8 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-10">
-      <div className="container mx-auto">
+      <AboutSite />
+      <div className=" mt-10 mx-auto">
         <div
           className="card bg-white shadow-lg mx-auto w-11/12 md:w-3/4 p-6 rounded-lg"
           data-aos="fade-up"
