@@ -5,6 +5,7 @@ import Loading from "../../components/Loading/Loading";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useState } from "react";
+import bgImg from "../../assets/packageBg.jpg";
 
 const AllPackage = () => {
   const axiosPublic = useAxiosPublic();
@@ -48,17 +49,22 @@ const AllPackage = () => {
   });
 
   return (
-    <div className="p-4 w-11/12 mx-auto bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <div
+      className="p-4  bg-white text-black bg-fixed bg-cover  dark:bg-gray-900 dark:text-white transition-colors duration-300"
+      style={{ backgroundImage: `url(${bgImg})` }}
+    >
       <Helmet>
         <title>Packages || Wayfari</title>
       </Helmet>
-      <SectionTitle
-        heading="All the packages are here"
-        subHeading="Choose Your Dream Destination and Book Now"
-      />
+      <div className=" w-8/12 mx-auto p-6 rounded-md shadow-md backdrop-blur-sm bg-white/40">
+        <SectionTitle
+          heading="All the packages are here"
+          subHeading="Choose Your Dream Destination and Book Now"
+        />
+      </div>
 
       {/* Sorting Dropdown */}
-      <div className="flex justify-between items-center my-6">
+      <div className="flex w-11/12 mx-auto justify-between items-center my-6">
         <h1 className="text-2xl font-bold">Tour Packages</h1>
         <select
           onChange={(e) => setSortBy(e.target.value)}
@@ -73,7 +79,7 @@ const AllPackage = () => {
       </div>
 
       {/* Tour Packages Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid w-11/12 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {sortedPackages.length > 0 ? (
           sortedPackages.map((item) => (
             <PackageCards key={item._id} item={item} />
