@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useBookingDB from "../../../Hooks/useBookingDB";
 import logo from "../../../assets/logo.png";
+import useSingleUsers from "../../../Hooks/useSingleUsers";
 
 const DashNavbar = () => {
+  const [singleUsers] = useSingleUsers();
   const { user, logout } = useAuth();
   const [bookings] = useBookingDB();
 
@@ -115,11 +117,11 @@ const DashNavbar = () => {
 
                 <p className="flex items-center gap-2 ml-2">
                   <CiUser />
-                  {user?.displayName}
+                  {singleUsers?.name}
                 </p>
                 <p className="flex flex-wrap text-xs items-center gap-2 p-2">
                   <MdAlternateEmail />
-                  {user?.email}
+                  {singleUsers?.email}
                 </p>
               </div>
             </ul>

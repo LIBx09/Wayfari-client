@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import ManageProfile from "../../ManageProfile/ManageProfile";
+// import ManageProfile from "../../ManageProfile/ManageProfile";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -111,7 +111,7 @@ const AdminHome = () => {
         </div>
       </div>
       <Chart adminStatData={adminStatData} />
-      <ManageProfile />
+      {/* <ManageProfile /> */}
     </div>
   );
 };

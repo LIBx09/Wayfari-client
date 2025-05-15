@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://tourism-jade-three.vercel.app",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",

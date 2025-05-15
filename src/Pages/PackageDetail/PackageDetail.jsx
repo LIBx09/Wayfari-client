@@ -11,10 +11,14 @@ import { FaMapMarkerAlt, FaDollarSign, FaListAlt } from "react-icons/fa";
 
 import useGuideUsers from "../../Hooks/useGuideUsers";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import useGuide from "../../Hooks/useguide";
+import useAdmin from "../../Hooks/useAdmin";
 
 const PackageDetail = () => {
   const detailPackage = useLoaderData();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [isGuide] = useGuide();
+  const [isAdmin] = useAdmin();
   const [guideUsers] = useGuideUsers();
 
   const {
@@ -97,14 +101,18 @@ const PackageDetail = () => {
           <div className="text-2xl font-bold text-green-600 flex items-center gap-2 mb-6">
             <FaDollarSign />${price.toLocaleString()}
           </div>
-          <Link to="/bookingForm">
-            <button
-              onClick={handleBookNow}
-              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
-            >
-              Book Now
-            </button>
-          </Link>
+          {isAdmin || isGuide ? (
+            "Disabled"
+          ) : (
+            <Link to="/bookingForm">
+              <button
+                onClick={handleBookNow}
+                className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+              >
+                Book Now
+              </button>
+            </Link>
+          )}
         </div>
 
         {/* Accordion for Day Details */}

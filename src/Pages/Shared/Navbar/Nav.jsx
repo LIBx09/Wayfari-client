@@ -138,11 +138,11 @@ const Nav = () => {
               <div className="p-2 text-sm space-y-1">
                 <p className="flex items-center gap-2">
                   <CiUser />
-                  {user?.displayName}
+                  {singleUsers?.name}
                 </p>
                 <p className="flex items-center gap-2 text-xs break-words">
                   <MdAlternateEmail />
-                  {user?.email}
+                  {singleUsers?.email}
                 </p>
               </div>
             </ul>

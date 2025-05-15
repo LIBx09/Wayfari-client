@@ -44,7 +44,7 @@ const ManageProfile = () => {
           </div>
 
           {/* Right side: User Information (Text fields) */}
-          <div className="flex justify-evenly">
+          <div className="flex flex-col md:flex-row  md:justify-evenly">
             <div>
               {/* Name */}
               <div>

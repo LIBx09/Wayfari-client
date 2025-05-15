@@ -51,9 +51,9 @@ const Dashboard = () => {
                   <li>
                     <Link to="/dashboard">DASHBOARD</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink to="/dashboard/adminHome">ADMIN HOME</NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink to="/dashboard/addPackage">ADD PACKAGE</NavLink>
                   </li>
