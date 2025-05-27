@@ -62,7 +62,7 @@ const CenterText = ({ h3, h2, buttonText, buttonLink }) => (
     </Fade>
     <Fade direction="up" delay={200}>
       <Link to={buttonLink}>
-        <button className="px-6 py-3 bg-orange-500 rounded-full text-white font-semibold hover:bg-orange-600 transition">
+        <button className="px-6 py-3 bg-[#0965FE] rounded-full text-white font-semibold hover:bg-blue-700 transition">
           {buttonText}
         </button>
       </Link>

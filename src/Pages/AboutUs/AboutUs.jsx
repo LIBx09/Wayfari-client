@@ -10,7 +10,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import AboutSite from "./AboutSite";
-import Review from "../../components/Review/Review";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -18,17 +17,17 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
+    <div className="min-h-screen bg-gray-100 pb-5 dark:bg-[#0F172A] ">
       <AboutSite />
       <div className=" mt-10 mx-auto">
         <div
-          className="card bg-white shadow-lg mx-auto w-11/12 md:w-3/4 p-6 rounded-lg"
+          className="card  shadow-lg mx-auto w-11/12 md:w-3/4 p-6 rounded-lg"
           data-aos="fade-up"
         >
-          <h2 className="text-3xl font-bold text-center mb-6 text-blue-600">
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-gray-300">
             About Me
           </h2>
-          <p className="text-lg text-center mb-4 text-gray-700">
+          <p className="text-lg text-center mb-4 text-gray-500">
             Hello! I am a Junior MERN Web Developer with experience in building
             modern web applications using the latest technologies.
           </p>
@@ -45,39 +44,39 @@ const AboutUs = () => {
           >
             <div className="flex flex-col items-center">
               <FaHtml5 className="text-6xl text-orange-600" />
-              <span className="mt-2 font-semibold text-gray-700">HTML5</span>
+              <span className="mt-2 font-semibold text-gray-500">HTML5</span>
             </div>
             <div className="flex flex-col items-center">
               <FaCss3Alt className="text-6xl text-blue-600" />
-              <span className="mt-2 font-semibold text-gray-700">CSS3</span>
+              <span className="mt-2 font-semibold text-gray-500">CSS3</span>
             </div>
             <div className="flex flex-col items-center">
               <SiTailwindcss className="text-6xl text-teal-500" />
-              <span className="mt-2 font-semibold text-gray-700">
+              <span className="mt-2 font-semibold text-gray-500">
                 Tailwind CSS
               </span>
             </div>
             <div className="flex flex-col items-center">
               <SiJavascript className="text-6xl text-yellow-600" />
-              <span className="mt-2 font-semibold text-gray-700">
+              <span className="mt-2 font-semibold text-gray-500">
                 JavaScript
               </span>
             </div>
             <div className="flex flex-col items-center">
               <FaReact className="text-6xl text-blue-500" />
-              <span className="mt-2 font-semibold text-gray-700">React</span>
+              <span className="mt-2 font-semibold text-gray-500">React</span>
             </div>
             <div className="flex flex-col items-center">
               <SiFirebase className="text-6xl text-yellow-500" />
-              <span className="mt-2 font-semibold text-gray-700">Firebase</span>
+              <span className="mt-2 font-semibold text-gray-500">Firebase</span>
             </div>
             <div className="flex flex-col items-center">
               <FaNodeJs className="text-6xl text-green-600" />
-              <span className="mt-2 font-semibold text-gray-700">Node.js</span>
+              <span className="mt-2 font-semibold text-gray-500">Node.js</span>
             </div>
             <div className="flex flex-col items-center">
-              <SiMongodb className="text-6xl text-green-700" />
-              <span className="mt-2 font-semibold text-gray-700">MongoDB</span>
+              <SiMongodb className="text-6xl text-green-500" />
+              <span className="mt-2 font-semibold text-gray-500">MongoDB</span>
             </div>
           </div>
 

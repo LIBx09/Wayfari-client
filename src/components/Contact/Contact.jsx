@@ -26,10 +26,10 @@ const Contact = () => {
       style={{ backgroundImage: `url(${contactBg})` }}
     >
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-500 mb-6">
           Contact Us
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-10">
+        <p className="text-center text-gray-600 dark:text-gray-800 mb-10">
           Have a question or inquiry? Fill out the form below, and we’ll get
           back to you as soon as possible.
         </p>

@@ -1,10 +1,12 @@
 const AboutSite = () => {
   return (
-    <div className="bg-base-100 text-base-content px-4 md:px-10 lg:px-24 py-12">
+    <div className="bg-base-100 text-base-content px-4 md:px-10 lg:px-24 py-12 dark:bg-[#0F172A] ">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">About Wayfari Tourism</h2>
-        <p className="text-lg max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+        <h2 className="text-4xl font-bold mb-4 dark:text-white">
+          About Wayfari Tourism
+        </h2>
+        <p className="text-lg max-w-3xl mx-auto text-gray-600 dark:text-gray-500">
           Discover the world with us. At Wayfari Tourism, we believe travel is
           more than just sightseeing — it&apos;s about connecting with cultures,
           creating memories, and exploring with purpose.
@@ -14,10 +16,10 @@ const AboutSite = () => {
       {/* Mission and Vision */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-          <h3 className="text-2xl font-semibold mb-2 text-primary">
+          <h3 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-300">
             Our Mission
           </h3>
-          <p>
+          <p className="text-gray-800 dark:text-gray-500">
             Our mission is to offer unique, authentic, and sustainable travel
             experiences that connect travelers with the heart of every
             destination. We aim to empower local communities and promote
@@ -25,10 +27,10 @@ const AboutSite = () => {
           </p>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-          <h3 className="text-2xl font-semibold mb-2 text-primary">
+          <h3 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-300">
             Our Vision
           </h3>
-          <p>
+          <p className="text-gray-800 dark:text-gray-500">
             To be a trusted global brand in tourism that inspires people to
             explore the world responsibly, while making a positive impact on the
             places we visit and the people we meet.
@@ -38,7 +40,7 @@ const AboutSite = () => {
 
       {/* Core Values */}
       <div className="mb-16">
-        <h3 className="text-2xl font-semibold mb-4 text-center">
+        <h3 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-gray-300">
           What We Value
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -60,10 +62,10 @@ const AboutSite = () => {
               key={i}
               className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow"
             >
-              <h4 className="text-xl font-bold mb-2 text-primary">
+              <h4 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-300">
                 {value.title}
               </h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-gray-600 dark:text-gray-500">
                 {value.desc}
               </p>
             </div>
@@ -73,7 +75,7 @@ const AboutSite = () => {
 
       {/* Team Section */}
       <div>
-        <h3 className="text-2xl font-semibold mb-6 text-center">
+        <h3 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-gray-300">
           Meet Our Team
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -103,9 +105,11 @@ const AboutSite = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-24 h-24 mx-auto rounded-full shadow-md mb-3"
+                className="w-24 h-24 mx-auto rounded-full shadow-md mb-3 "
               />
-              <h4 className="font-bold text-lg">{member.name}</h4>
+              <h4 className="font-bold text-lg text-gray-800 dark:text-gray-300">
+                {member.name}
+              </h4>
               <p className="text-sm text-gray-500">{member.role}</p>
             </div>
           ))}
