@@ -18,7 +18,7 @@ const Review = () => {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    fetch("https://tourism-jade-three.vercel.app/review")
+    fetch("http://localhost:5000/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

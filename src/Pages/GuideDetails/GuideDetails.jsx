@@ -19,8 +19,8 @@ const GuideDetails = () => {
 
   useEffect(() => {
     const url = id
-      ? `https://tourism-jade-three.vercel.app/users/all/guide/${guideId}?detailsId=${id}`
-      : `https://tourism-jade-three.vercel.app/users/all/guide/${guideId}`;
+      ? `http://localhost:5000/users/all/guide/${guideId}?detailsId=${id}`
+      : `http://localhost:5000/users/all/guide/${guideId}`;
 
     fetch(url)
       .then((response) => {

@@ -41,7 +41,7 @@ const TourAndGuide = () => {
   }, [axiosPublic]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className=" mx-auto">
       <Tabs>
         <TabList className="flex gap-4 mb-6 border-b border-gray-200 dark:border-gray-700">
           <Tab className="px-4 py-2 font-semibold text-gray-700 dark:text-gray-200 cursor-pointer hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400">
@@ -56,7 +56,7 @@ const TourAndGuide = () => {
           {loadingPackages ? (
             <Loading />
           ) : packages.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               {packages.map((item) => (
                 <PackageCards key={item._id} item={item} />
               ))}
@@ -72,7 +72,7 @@ const TourAndGuide = () => {
           {loadingGuides ? (
             <Loading />
           ) : guides.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {guides.map((guide) => (
                 <GuideCards key={guide._id} guide={guide} />
               ))}

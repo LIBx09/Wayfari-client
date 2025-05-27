@@ -1,11 +1,11 @@
 const OverviewSection = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-10">
-      <div className="flex-1">
+    <div className="flex items-center mx-5 flex-col md:flex-row gap-10">
+      <div className="flex-1 ">
         <h2 className="text-2xl font-bold">
           21 Years of Experience in the Tourism Business
         </h2>
-        <p className="mt-4 text-gray-700 dark:text-slate-500">
+        <p className="mt-4  text-gray-700 dark:text-slate-500">
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected
           humour, or randomised words which don&apos;t look even slightly

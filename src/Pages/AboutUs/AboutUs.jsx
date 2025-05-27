@@ -10,6 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import AboutSite from "./AboutSite";
+import Review from "../../components/Review/Review";
 
 const AboutUs = () => {
   useEffect(() => {

@@ -45,7 +45,7 @@ const FeatureGallery = () => {
   ];
 
   return (
-    <div className="grid grid-cols-3 grid-rows-2 gap-2 p-4">
+    <div className="grid grid-cols-3 grid-rows-2 gap-2">
       {images.map((img, index) => (
         <div
           key={index}

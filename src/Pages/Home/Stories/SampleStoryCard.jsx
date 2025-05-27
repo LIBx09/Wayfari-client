@@ -37,8 +37,8 @@ const SampleStoryCard = ({ story }) => {
 
   return (
     <>
-      <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <div className="relative group w-full h-64 overflow-hidden rounded-t-lg">
+      <div className=" bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="relative group w-full h-96 overflow-hidden">
           {/* Image */}
           <img
             className="w-full h-full object-cover"
