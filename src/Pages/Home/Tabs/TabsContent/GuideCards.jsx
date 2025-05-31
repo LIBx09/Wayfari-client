@@ -17,7 +17,7 @@ const GuideCards = ({ guide }) => {
 
       {/* Guide Info */}
       <h2 className="text-xl font-bold text-gray-800">{name}</h2>
-      <p className="text-sm text-blue-600 mb-1 capitalize">{role} Guide</p>
+      <p className="text-sm text-blue-600 mb-1 capitalize">{role} sssGuide</p>
 
       <p className="text-gray-500 text-sm mb-4">
         <a href={`mailto:${email}`} className="hover:underline">

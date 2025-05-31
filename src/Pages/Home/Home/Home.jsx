@@ -9,6 +9,7 @@ import Framer from "../Framer/Framer";
 import FeatureGallery from "../FeatureGallery/FeatureGallery";
 import Review from "../../../components/Review/Review";
 import Peps from "../PepsPic/Peps";
+import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
   return (
@@ -39,6 +40,13 @@ const Home = () => {
           subHeading="Choose your Desire Packages"
         />
         <TourAndGuide />
+      </section>
+      <section>
+        <SectionTitle
+          heading="Why Choose Us"
+          subHeading="We are the best in the business"
+        />
+        <WhyChooseUs />
       </section>
       <section className="">
         <SectionTitle
