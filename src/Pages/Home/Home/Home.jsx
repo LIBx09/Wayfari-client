@@ -10,6 +10,8 @@ import FeatureGallery from "../FeatureGallery/FeatureGallery";
 import Review from "../../../components/Review/Review";
 import Peps from "../PepsPic/Peps";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
+import ClientStat from "../ClientStat/ClientStat";
+import NewsAndUpdates from "../NewsAndUpdates/NewsAndUpdates";
 
 const Home = () => {
   return (
@@ -54,6 +56,16 @@ const Home = () => {
           subHeading="We are just waiting for you"
         />
         <Framer />
+      </section>
+      <section>
+        <SectionTitle
+          heading="Client Stat"
+          subHeading="We are the best in the business"
+        />
+        <ClientStat />
+      </section>
+      <section>
+        <NewsAndUpdates />
       </section>
       <section>
         <SectionTitle
