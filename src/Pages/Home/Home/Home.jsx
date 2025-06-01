@@ -12,6 +12,7 @@ import Peps from "../PepsPic/Peps";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 import ClientStat from "../ClientStat/ClientStat";
 import NewsAndUpdates from "../NewsAndUpdates/NewsAndUpdates";
+import SpecialOffers from "../SpecialOffers/SpecialOffers";
 
 const Home = () => {
   return (
@@ -58,14 +59,17 @@ const Home = () => {
         <Framer />
       </section>
       <section>
-        <SectionTitle
-          heading="Client Stat"
-          subHeading="We are the best in the business"
-        />
         <ClientStat />
       </section>
       <section>
         <NewsAndUpdates />
+      </section>
+      <section className="mb-10">
+        <SectionTitle
+          heading="Special Offers"
+          subHeading="Look at our special offers and discounts"
+        />
+        <SpecialOffers />
       </section>
       <section>
         <SectionTitle

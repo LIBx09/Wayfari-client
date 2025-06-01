@@ -33,7 +33,7 @@ const ClientStat = () => {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-white text-center rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300"
+            className="bg-white text-center rounded-xl  p-6 my-12 transition duration-300"
           >
             <div className="flex justify-center mb-4 text-red-600">
               {stat.icon}
