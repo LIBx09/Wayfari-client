@@ -48,7 +48,9 @@ const router = createBrowserRouter([
         path: "details/:id",
         element: <PackageDetail />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/package/details/${params.id}`),
+          fetch(
+            `https://tourism-jade-three.vercel.app/package/details/${params.id}`
+          ),
       },
       {
         path: "/details/:id/guideDetails/:guideId",

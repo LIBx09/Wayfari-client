@@ -82,7 +82,9 @@ const SampleStoryCard = ({ story }) => {
           <div className="absolute bottom-4 right-5 flex items-center gap-4 z-10 ">
             <Link to="/community">
               {!isCommunity && (
-                <button className="btn btn-primary mt-3">More</button>
+                <button className="text-white border-b-2 border-blue-500">
+                  More
+                </button>
               )}
             </Link>
             <Link to="/dashboard/addStories">
